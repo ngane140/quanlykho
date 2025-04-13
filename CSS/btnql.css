@@ -1,0 +1,25 @@
+
+.btn {
+    background-color: #4CAF50; /* Màu xanh lá */
+    color: white;              /* Chữ trắng */
+    padding: 10px 20px;        /* Khoảng cách bên trong */
+    border: none;              /* Không viền */
+    border-radius: 8px;        /* Bo góc */
+    cursor: pointer;           /* Trỏ chuột dạng tay */
+    font-size: 16px;           /* Kích thước chữ */
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+}
+
+.btn:hover {
+    background-color: #45a049; /* Màu khi rê chuột */
+}
+.btnql {
+    background-color:red; /* Màu xanh lá */
+    color: white;              /* Chữ trắng */
+    padding: 10px 20px;        /* Khoảng cách bên trong */
+    border: none;              /* Không viền */
+    border-radius: 8px;        /* Bo góc */
+    cursor: pointer;           /* Trỏ chuột dạng tay */
+    font-size: 16px;           /* Kích thước chữ */
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+}

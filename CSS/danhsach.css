@@ -1,0 +1,89 @@
+/* Định dạng vùng chứa tiêu đề + nút */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Nút tạo yêu cầu đẹp */
+.btn-create {
+    background: linear-gradient(135deg, green,green);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-create:hover {
+    background: linear-gradient(135deg, #6cff5e,#6cff5e);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+/* Bố cục chung */
+.content {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Đảm bảo bảng full chiều rộng */
+
+.table-container {
+    max-height: 340px;      /* Giới hạn chiều cao để tạo cuộn dọc */
+    overflow-y: auto;       /* Cho phép cuộn dọc */
+    overflow-x: auto;       /* (nếu bảng rộng thì cũng cuộn ngang) */
+}
+/* Định dạng bảng */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;;
+    background: white;
+    border-radius: 10px;
+   
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Định dạng tiêu đề */
+.product-table thead {
+    background: #2196f3;
+    color: white;
+}
+.product-table thead th {
+    position: sticky;
+    top: 0;
+    background: #2196f3;
+    color: white;
+    z-index: 1;
+}
+
+
+.product-table th, .product-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* Hover từng dòng */
+.product-table tbody tr:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Canh trái cột "Tên sản phẩm" */
+.product-table td:nth-child(2) {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Định dạng tiêu đề bảng */
+h2 {
+    text-align: left;
+    padding: 10px 0;
+}

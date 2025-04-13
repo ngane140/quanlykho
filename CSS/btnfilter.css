@@ -1,0 +1,40 @@
+.filter-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 0px;     /* Khoảng cách với phần tử phía trên */
+    margin-bottom: 5px;
+    align-items: center;
+    flex-wrap: wrap; /* Nếu màn hình nhỏ thì tự xuống dòng */
+    justify-content: flex-end; /* Sát lề phải */
+  }
+
+  .btn-filter {
+    background-color: #f1f1f1; /* Màu nền nhạt ban đầu */
+    color: black;              /* Chữ màu đen */
+    border: none;
+    padding: 8px 14px;
+    margin: 5px 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  }
+
+  /* Khi được chọn */
+  .btn-filter.active {
+    background-color: #2ecc71 !important; /* Xanh lá tươi */
+    color: white;
+  }
+  
+  /* Hover cũng cho giống active để đồng bộ */
+  .btn-filter:hover {
+    background-color: #22f90a;
+    color: white;
+  }
+  
+  /* Optional: hiệu ứng khi click */
+  .btn-filter:active {
+    transform: scale(0.97);
+  }
+  

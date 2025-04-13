@@ -1,0 +1,31 @@
+.form-buttons {
+    display: flex; /* Sử dụng Flexbox để các nút nằm ngang */
+    justify-content: space-between; /* Căn chỉnh khoảng cách giữa các nút */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+button {
+    width: 48%;  /* Đặt chiều rộng của nút */
+    padding: 10px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+  button:hover {
+    background: #1976d2;
+  }
+  
+  button[type="button"] {
+    background: #f44336; /* Màu đỏ cho nút Hủy bỏ */
+    color: white;
+  }
+  
+  button[type="button"]:hover {
+    background: #d32f2f; /* Đổi màu khi hover */
+  }
+  

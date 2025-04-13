@@ -1,0 +1,78 @@
+
+  .password-form {
+    background: white;
+    padding: 30px; /* Giảm padding để phù hợp với chiều cao */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    min-height: 40vh; /* Chiều cao tối thiểu là 50% màn hình */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Canh giữa nội dung trong form */
+    margin-left: 300px;
+}
+
+/* Để căn giữa form trong màn hình */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    height: 50vh; /* Chiếm toàn bộ chiều cao màn hình */
+    padding: 50px;
+}
+ 
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0px 0px 5px rgba(33, 150, 243, 0.5);
+  }
+  .form-buttons {
+    display: flex; /* Sử dụng Flexbox để các nút nằm ngang */
+    justify-content: space-between; /* Căn chỉnh khoảng cách giữa các nút */
+    gap: 10px; /* Khoảng cách giữa các nút */
+}
+
+button {
+    width: 48%;  /* Đặt chiều rộng của nút */
+    padding: 10px;
+    background: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+  button:hover {
+    background: #1976d2;
+  }
+  
+  button[type="button"] {
+    background: #f44336; /* Màu đỏ cho nút Hủy bỏ */
+    color: white;
+  }
+  
+  button[type="button"]:hover {
+    background: #d32f2f; /* Đổi màu khi hover */
+  }
+  

@@ -1,0 +1,24 @@
+
+.btn-delete {
+    color: red;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.btn-delete:hover {
+    background-color: #ffcccc;
+}
+
+.btn-edit {
+    color: blue;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+}
+
+.btn-edit:hover {
+    background-color: #cce5ff;
+}

@@ -1,0 +1,147 @@
+.nut-xoa {
+    display: inline-block;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+/* Định dạng vùng chứa tiêu đề + nút */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* Nút tạo yêu cầu đẹp */
+.btn-create {
+    background: linear-gradient(135deg, green,green);
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-create:hover {
+    background: linear-gradient(135deg, #6cff5e,#6cff5e);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+/* Bố cục chung */
+.content {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Đảm bảo bảng full chiều rộng */
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Cho phép cuộn ngang nếu cần */
+}
+
+/* Định dạng bảng */
+/* 
+/* Điều chỉnh độ rộng từng cột theo % hoặc px tuỳ ý */
+.product-table th:nth-child(1), .product-table td:nth-child(1) { width: 12%; }
+.product-table th:nth-child(2), .product-table td:nth-child(2) { width: 18%; }
+.product-table th:nth-child(3), .product-table td:nth-child(3) { width: 13%; }
+.product-table th:nth-child(4), .product-table td:nth-child(4) { width: 13%; }
+.product-table th:nth-child(5), .product-table td:nth-child(5) { width: 13%; }
+.product-table th:nth-child(6), .product-table td:nth-child(6) { width: 20%; }
+.product-table th:nth-child(7), .product-table td:nth-child(7) { width: 6%; }
+
+/* Đảm bảo text không bị tràn */
+.product-table td input {
+    width: 100%;
+    box-sizing: border-box;
+}
+/* Định dạng tiêu đề */
+.product-table thead {
+    background: #2196f3;
+    color: white;
+}
+
+.product-table th, .product-table td {
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+/* Hover từng dòng */
+.product-table tbody tr:hover {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Canh trái cột "Tên sản phẩm" */
+.product-table td:nth-child(2) {
+    text-align: left;
+    padding-left: 20px;
+}
+
+/* Định dạng tiêu đề bảng */
+h2 {
+    text-align: left;
+    padding: 10px 0;
+}
+#goiYNguyenLieu {
+    max-height: 80px; /* hoặc bao nhiêu tùy bạn, ví dụ 250px */
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    position: absolute;
+    z-index: 1000;
+    width: 100%; /* hoặc cố định, ví dụ 300px nếu bạn thích */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.thanhcuon {
+    max-height: 230px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+}
+
+/* Cố định thead khi cuộn */
+.product-table thead th {
+    position: sticky;
+    top: 0;
+    background: #2196f3;
+    color: white;
+    z-index: 1;
+}
+
+/* Đảm bảo table layout khớp */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.thongtin{
+    display: grid;
+    gap: 5px;
+    margin-bottom: 10px;
+
+    grid-template-columns: repeat(2, minmax(100px, 250px));
+
+}
+.box-item {
+    background-color: #f4faff;
+    padding: 6px 8px;
+    border: 1px solid #2196f3;
+    padding: 3px 4px; /* nhỏ hơn */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border-radius: 10px; /* ✅ bo góc nhẹ */
+}
+
