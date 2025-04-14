@@ -14,6 +14,7 @@ if ($idNguoiDung <= 0) {
 }
 
 
+
 // Lấy thông tin người dùng
 $thongTinNguoiDung = null;
 $sql = "SELECT nd.hoTen, l.tenLoaiNguoiDung 
