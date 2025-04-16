@@ -15,7 +15,7 @@ $sql = "SELECT MAX(idYeuCauXuatSP) as maxID FROM yeucauxuatsanpham";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $nextID = $row['maxID'] + 1;
-$maYC = "YCXSP" . str_pad($nextID, 3, '0', STR_PAD_LEFT);
+$maYC = "YCXSP" . str_pad($nextID, 2, '0', STR_PAD_LEFT);
 $ngayTao = date("Y-m-d H:i:s");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

@@ -61,7 +61,8 @@ include("../class/clsdskiemke.php");
                         echo "<tr>";
                         echo "<td>" . ($index + 1) . "</td>";
                         echo "<td>" . $row['maPhieu'] . "</td>";
-                        echo "<td>" . $row['ngayKiemKe'] . "</td>";
+                        echo "<td>" . date("d/m/Y H:i", strtotime($row['ngayKiemKe'])) . "</td>";
+
                         echo "<td>" . $row['hoTen'] . "</td>";
                         echo "<td>" . $row['tenLoaiNguoiDung'] . "</td>";
                         echo "<td>
