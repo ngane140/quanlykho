@@ -12,6 +12,7 @@ include_once('../class/clschitietphieukiemke.php');
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
+  <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
 
 
   <style>
@@ -39,7 +40,7 @@ include_once('../class/clschitietphieukiemke.php');
       <button class="logout">Đăng xuất</button>
     </aside>    
     <main class="content">
-  <h1>Phiếu kiểm kê</h1>
+  <h2>Phiếu kiểm kê</h2>
   <?php if ($thongTin): ?>
     <p><strong>Mã phiếu:</strong> <?php echo $thongTin['maPhieu']; ?></p>
     <p><strong>Ngày kiểm kê:</strong> <?php echo $thongTin['ngayKiemKe']; ?></p>
@@ -48,39 +49,39 @@ include_once('../class/clschitietphieukiemke.php');
 <?php else: ?>
     <p>Không tìm thấy thông tin phiếu kiểm kê.</p>
 <?php endif; ?>
- 
-  <table class="product-table">
-    <thead>
-      <tr>
-        <th>STT</th>
-        <th>Tên Nguyên Liệu</th>
-        <th>Số Lượng tồn</th>
-        <th>Số Lượng Thực Tế</th>
-        <th>Chênh Lệch</th>
-        <th>Ghi chú</th>
-      </tr>
-    </thead>
-    <tbody>
-  <?php 
-  $stt = 1;
-  if (!empty($resultChiTiet)):
-    foreach ($resultChiTiet as $row): ?>
-      <tr>
-    
-        <td><?php echo $stt++; ?></td>
-        <td><?php echo $row['tenNguyenLieu']; ?></td>    
-        <td><?php echo $row['soLuongKiemKe']; ?></td>
-        <td><?php echo $row['soLuongThucTe']; ?></td> 
-        <td><?php echo $row['soLuongChenhLech']; ?></td>
-        <td><?php echo $row['ngayNhap']; ?></td>
-      </tr>
-    <?php endforeach; ?>
-  <?php else: ?>
-    <tr><td colspan="6">Không có dữ liệu kiểm kê.</td></tr>
-  <?php endif; ?>
-</tbody>
-  </table>
-  <br>
+<div class="thanhcuon">
+    <table class="product-table">
+      <thead>
+        <tr>
+          <th>STT</th>
+          <th>Tên Nguyên Liệu</th>
+          <th>Số Lượng tồn</th>
+          <th>Số Lượng Thực Tế</th>
+          <th>Chênh Lệch</th>
+          <th>Ngày Nhập</th>
+        </tr>
+      </thead>
+      <tbody>
+    <?php 
+    $stt = 1;
+    if (!empty($resultChiTiet)):
+      foreach ($resultChiTiet as $row): ?>
+        <tr>
+      
+          <td><?php echo $stt++; ?></td>
+          <td><?php echo $row['tenNguyenLieu']; ?></td>    
+          <td><?php echo $row['soLuongKiemKe']; ?></td>
+          <td><?php echo $row['soLuongThucTe']; ?></td> 
+          <td><?php echo $row['soLuongChenhLech']; ?></td>
+          <td><?php echo $row['ngayNhap']; ?></td>
+        </tr>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <tr><td colspan="6">Không có dữ liệu kiểm kê.</td></tr>
+    <?php endif; ?>
+  </tbody>
+    </table>
+  </div> <br>
   <a href="dskiemke.php"><button class="btn" style="float: right;">Quay lại</button></a>
 </main>
   </div>

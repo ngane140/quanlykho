@@ -1,3 +1,6 @@
+<?php
+include('../class/clsdsyeucauxuatSP.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +9,7 @@
   <title>Yêu cầu xuất sản phẩm</title>
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
+  <link rel="stylesheet" href="../CSS/btnxoasua.css">
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -28,10 +32,13 @@
       <button class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-        <div class="header-section">
-            <h2>Danh sách yêu cầu xuất sản phẩm</h2>
-            <button class="btn-create" onclick="openCreateRequest()">+ Thêm Yêu Cầu</button>
+    <div class="header-section">
+        <h2>Danh Sách Yêu Cầu Xuất Sản Phẩm</h2>
+            <a href="taoyeucauxuatsp.php">
+                <button class="btn-create">+ Tạo yêu cầu</button>
+            </a>
         </div>
+        <div class="table-container">
         <table class="product-table">
             <thead>
                 <tr>
@@ -40,32 +47,53 @@
                     <th>Tên khách hàng</th>
                     <th>Ngày yêu cầu</th>
                     <th>Trạng thái</th>
+                    <th>Tác vụ</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>SP001</td>
-                    <td>Tên khách hàng</td>
-                    <td>Cái</td>
-                    <td>Xác nhận xuất</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>SP001</td>
-                    <td>Tên khách hàng</td>
-                    <td>Cái</td>
-                    <td>Chờ sản xuất</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>SP001</td>
-                    <td>Tên khách hàng</td>
-                    <td>Cái</td>
-                    <td>Từ chối</td>
-                </tr>
+            <?php
+                if (count($danhsach) > 0)  {
+                    foreach ($danhsach as $index => $row) {
+                        echo "<tr>";
+                        echo "<td>" . ($index + 1) . "</td>";
+                        echo "<td> YCXSP" . $row['idYeuCauXuatSP'] . "</td>";
+                        echo "<td>" . $row['hoTen'] . "</td>";
+                        echo "<td>" . date("d/m/Y H:i", strtotime($row['ngayYeuCau'])) . "</td>";
+                        $status = '';
+                        switch ($row['trangThai']) {
+                            case 0:
+                                $status = "Chờ xuất";
+                                break;
+                            case 1:
+                                $status = "Đã xuất";
+                                break;
+                            case 2:
+                                $status = "Đang sản xuất";
+                                break;
+                            case 3:
+                                $status = "Từ chối";
+                                break;
+                            default:
+                               break;
+                        }
+
+                        echo "<td>" . $status . "</td>";
+
+                        echo "<td>
+                          <a href='xemyeucauxuatSP.php?id=" . $row['idYeuCauXuatSP'] . "' class='btn-edit'>xem</a>
+
+                              </td>";
+                              
+                              
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='5'>Không có phiếu nào.</td></tr>";
+                }
+                ?>
             </tbody>
         </table>
+        </div>
     </main>
 </div>
 <footer class="footer">
