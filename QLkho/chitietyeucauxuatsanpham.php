@@ -6,8 +6,8 @@ $layidKhachHang= $p->laycot("select idKhachHang from yeucauxuatsanpham where idY
 $laytenKH = $p->laycot("select hoTen from khachhang where idKhachHang = '$layidKhachHang'");
 $layngayYeuCau= $p->laycot("select ngayYeuCau from yeucauxuatsanpham where idYeuCauXuatSP = '$layid'");
 $laytrangThai= $p->laycot("select trangThai from yeucauxuatsanpham where idYeuCauXuatSP = '$layid'");
-$layidSanPham= $p->laycot("SELECT idSanPham FROM chitietyeucauxuatsp WHERE idYeuCauXuatSP ='$layid'");
-$laysoLuongXuat = $p->laycot("select soLuongXuat from chitietyeucauxuatsp where idSanPham='$layidSanPham'");
+$laymaSP= $p->laycot("SELECT maSP FROM chitietyeucauxuatsanpham WHERE idYeuCauXuatSP ='$layid'");
+$laysoLuongXuat = $p->laycot("select soLuongXuat from chitietyeucauxuatsanpham where maSP='$laymaSP'");
 
 if ($laytrangThai == 0) {
     $laytrangThaiText = "Chờ xử lý";
@@ -79,6 +79,7 @@ else {
                             style="background-color: #4CAF50; margin-right: 100px;">
                         Tạo yêu cầu sản xuất
                     </button>
+                    <button class="btn-create" name="nut" value="Xac nhan xuat" type="submit" style="margin-right: 100px;">Xác nhận Xuất</button>
                 <?php elseif($laytrangThai == 3): ?>
                     
                 <?php endif; ?>
@@ -87,15 +88,15 @@ else {
                             switch($_POST['nut']){
                                 case 'Xac nhan xuat': {
                                     // Lấy danh sách sản phẩm trong phiếu
-                                    $sql_sanpham = "SELECT idSanPham, soLuongXuat FROM chitietyeucauxuatsp WHERE idYeuCauXuatSP = '$layid'";
+                                    $sql_sanpham = "SELECT maSP, soLuongXuat FROM chitietyeucauxuatsanpham WHERE idYeuCauXuatSP = '$layid'";
                                     $ketqua_sanpham = mysql_query($sql_sanpham);
                                     $duDieuKien = true;
                                     
                                     // Kiểm tra từng sản phẩm
                                     while($row = mysql_fetch_array($ketqua_sanpham)) {
-                                        $layidSanPham = $row['idSanPham'];
+                                        $laymaSP = $row['maSP'];
                                         $laysoLuongXuat = $row['soLuongXuat'];
-                                        $laysoluong = $p->laycot("SELECT soLuong FROM sanpham WHERE idSanPham = '$layidSanPham'");
+                                        $laysoluong = $p->laycot("SELECT soLuong FROM sanpham WHERE maSP = '$laymaSP'");
                                         
                                         if($laysoLuongXuat > $laysoluong) {
                                             $duDieuKien = false;
@@ -105,7 +106,7 @@ else {
                                     
                                     if(!$duDieuKien) {
                                         echo '<script language="javascript">
-                                                alert("Hiện tại số lượng hiện tại không đủ để xuất kho");
+                                                alert("Hiện tại số lượng hiện tại không đủ để xuất kho. Vui lòng tạo phiếu yêu cầu sản phẩm");
                                                 window.location.href = "chitietyeucauxuatsanpham.php?id='.$layid.'";
                                               </script>';
                                         // Cập nhật trạng thái thành 1 (Đã duyệt)
@@ -119,10 +120,10 @@ else {
                                         $p->themxoasua("UPDATE yeucauxuatsanpham SET trangThai = 2 WHERE idYeuCauXuatSP = '$layid'");
                                         mysql_data_seek($ketqua_sanpham, 0); // Đặt lại con trỏ result
                                         while($row = mysql_fetch_array($ketqua_sanpham)) {
-                                            $layidSanPham = $row['idSanPham'];
+                                            $laymaSP = $row['maSP'];
                                             $laysoLuongXuat = $row['soLuongXuat'];
                                             
-                                            $p->themxoasua("UPDATE sanpham SET soLuong = soLuong - $laysoLuongXuat WHERE idSanPham = '$layidSanPham'");
+                                            $p->themxoasua("UPDATE sanpham SET soLuong = soLuong - $laysoLuongXuat WHERE maSP = '$laymaSP'");
                                         }
                                     }
                                     break;
@@ -131,7 +132,7 @@ else {
                                 case 'Tu choi phieu':{
                                     if($p->themxoasua("UPDATE yeucauxuatsanpham SET trangThai = 3 WHERE idYeuCauXuatSP = '$layid'")==1){
                                          echo '<script language="javascript">alert("Bạn có chắc chắn muốn từ chối phiếu");
-                                                window.location = "chitietyeucauxuatsanpham.php?id='.$layid.'";</script>';
+                                                window.location = "chitietyeucauxuatSP.php?id='.$layid.'";</script>';
                                     }
                                 
                                 }
@@ -156,7 +157,7 @@ else {
                         <td>1</td>
                         <td><?php echo $laytenKH ?></td>
                         <td><?php echo $layngayYeuCau ?></td>
-                        <td ><?php  $p->chitietsanpham("select * from chitietyeucauxuatsp where idYeuCauXuatSP = '$layid'")?></td>
+                        <td ><?php  $p->chitietsanpham("select * from chitietyeucauxuatsanpham where idYeuCauXuatSP = '$layid'")?></td>
                         <td><?php echo $laytrangThaiText ?></td>
                     </tr>
                     
