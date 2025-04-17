@@ -21,7 +21,27 @@
 }
 
 .btn-create:hover {
-    background: linear-gradient(135deg, #6cff5e,#6cff5e);
+    background: linear-gradient(135deg, #2d6d27,#30712a);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    transform: scale(1.05);
+}
+
+/* Nút tạo yêu cầu đẹp */
+.btn-cancel {
+    background: linear-gradient(135deg, rgb(104, 116, 104),rgb(113, 127, 113));
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cancel:hover {
+    background: linear-gradient(135deg, #425b40,#6a8768);
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
     transform: scale(1.05);
 }
