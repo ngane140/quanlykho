@@ -43,7 +43,7 @@
     <main class="content">
         <div class="header-section">
             <h2>Danh sách yêu cầu sản xuất</h2>
-            <button class="btn-create" onclick="openCreateRequest()">+ Thêm Yêu Cầu</button>
+            <button class="btn-create" onclick="window.location.href='taoycsxsp.php'">+ Thêm Yêu Cầu</button>
         </div>
         <table class="product-table">
             <thead>

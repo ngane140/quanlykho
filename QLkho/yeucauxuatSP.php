@@ -1,3 +1,8 @@
+<?php
+include("../class/clsdsnhanyeucauxuatSP.php");
+$p = new qlykho();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,44 +47,19 @@
     </aside>
     <main class="content">
         <h2>Danh sách yêu cầu xuất sản phẩm</h2>
-        <table class="product-table">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã yêu cầu</th>
-                    <th>Tên khách hàng</th>
-                    <th>Ngày yêu cầu</th>
-                    <th>Trạng thái</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>SP001</td>
-                    <td>Tên khách hàng</td>
-                    <td>Cái</td>
-                    <td>Xác nhận xuất</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>SP001</td>
-                    <td>Tên khách hàng</td>
-                    <td>Cái</td>
-                    <td>Chờ sản xuất</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>SP001</td>
-                    <td>Tên khách hàng</td>
-                    <td>Cái</td>
-                    <td>Từ chối</td>
-                </tr>
-            </tbody>
-        </table>
+        
+           <?php
+           $p->xemdsyeucauxuatsp("select * from yeucauxuatsanpham");
+           
+           ?>
+           
     </main>
+
+    
 </div>
 <footer class="footer">
     <p>Bản quyền © 2025 - Hệ Thống Quản Lý Kho</p>
 </footer>
+
 </body>
 </html>

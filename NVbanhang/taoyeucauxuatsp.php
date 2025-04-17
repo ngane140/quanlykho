@@ -9,7 +9,7 @@ include('../class/clsthemyeucauxuatSP.php');
   <title>Thông tin NVBH</title>
   <link rel="stylesheet" href="../CSS/cssthongtin.css">
   <link rel="stylesheet" href="../CSS/style.css">
-  <link rel="stylesheet" href="../CSS/danhsach.css">
+  <link rel="stylesheet" href="../CSS/da,sach.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
   <script src="../JS/themyeucauxuatSP.js"></script>
