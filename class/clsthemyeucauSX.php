@@ -11,27 +11,14 @@ if ($idNguoiDung <= 0) {
 }
 
 // Lấy mã yêu cầu tiếp theo
-$sql = "SELECT MAX(idYeuCauXuatSP) as maxID FROM yeucauxuatsanpham";
+$sql = "SELECT MAX(idYeuCauSXSP) as maxID FROM yeucausanxuatsanpham";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $nextID = $row['maxID'] + 1;
-$maYC = "YCXSP" . str_pad($nextID, 2, '0', STR_PAD_LEFT);
+$maYC = "YCSXSP" . str_pad($nextID, 2, '0', STR_PAD_LEFT);
 $ngayTao = date("Y-m-d H:i:s");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    $tenKH = isset($_POST['tenKH']) ? $_POST['tenKH'] : '';
-   
-
-    // Kiểm tra khách hàng
-    $khach = mysqli_query($conn, "SELECT idKhachHang FROM khachhang WHERE hoTen = '$tenKH'");
-    if (!$khach || mysqli_num_rows($khach) == 0) {
-        echo "Không tìm thấy khách hàng!";
-        exit;
-    }
-
-    $row = mysqli_fetch_assoc($khach);
-    $idKH = $row['idKhachHang'];
 
     // Lấy danh sách sản phẩm từ chuỗi JSON
     $products = json_decode($_POST['products'], true);
@@ -42,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Thêm vào bảng yêu cầu
     $ngayYC = date("Y-m-d H:i:s");
-    mysqli_query($conn, "INSERT INTO yeucauxuatsanpham (idKhachHang,ngayYeuCau, trangThai) VALUES ('$idKH','$ngayYC', 0)");
+    mysqli_query($conn, "INSERT INTO yeucausanxuatsanpham (ngayYeuCau, trangThai) VALUES ('$ngayYC', 0)");
     $idYC = mysqli_insert_id($conn);
 
     // Thêm chi tiết
@@ -54,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit;
         }
 
-        $sqlDetail = "INSERT INTO chitietyeucauxuatsanpham (idYeuCauXuatSP, maSP, soLuongXuat) 
+        $sqlDetail = "INSERT INTO chitietyeucausanxuatsanpham (idYeuCauSXSP, maSP, soLuongSX) 
                       VALUES ($idYC, '$maSP', $soLuong)";
         if (!mysqli_query($conn, $sqlDetail)) {
             echo "Lỗi khi lưu chi tiết yêu cầu sản phẩm: " . mysqli_error($conn);

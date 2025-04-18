@@ -1,5 +1,5 @@
 <?php
-include('../class/clsxemchitietyeucauxuatSP.php');
+include('../class/clschitietyeucauSX.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,33 +28,37 @@ include('../class/clsxemchitietyeucauxuatSP.php');
     <h1>Hệ Thống Quản Lý Kho</h1>
 </header>
 <div class="container">
-    <aside class="sidebar">
+<aside class="sidebar">
       <ul>
         <li><a href="">Trang chủ</a></li>
-        <li><a href="theodoisp.php">Theo dõi sản phẩm</a></li>
-        <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
+        <li><a href="quanlinv.php">Quản lý nhân viên kho</a></li>
+        <li><a href="theodoisp.php">Quản lý sản phẩm</a></li>
+        <li><a href="theodoiNL.php">Quản lý nguyên liệu</a></li>
+        <li class="dropdown">
+            Quản lý yêu cầu
+            <ul class="dropdown-content">
+              <li><a href="">Yêu cầu xuất nguyên liệu</a></li>
+              <li><a href="">Yêu cầu nhập nguyên liệu</a></li>
+              <li><a href="yeucausanxuat.php">Yêu cầu sản xuất</a></li>
+              <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
+            </ul>
+       </li>
+        <li><a href="">Tạo mã QR sản phẩm</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
       <button class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-    <h2>Yêu cầu xuất Sản Phẩm</h2>
+    <h2>Yêu cầu sản xuất</h2>
     <?php if ($thongTin): ?>
         <p>
-        <span class="info-group"><strong>Mã phiếu:</strong> <?php echo "YCXSP" . $thongTin['idYeuCauXuatSP']; ?></span>
-        <span class="info-group"><strong>Ngày yêu cầu:</strong> <?php echo date("d/m/Y H:i", strtotime($thongTin['ngayYeuCau'])); ?></span>
+        <span class="info-group"><strong>Mã phiếu:</strong> <?php echo "YCSXSP" . $thongTin['idYeuCauSXSP']; ?></span>  
     </p>
     <p>
-        <span class="info-group"><strong>Khách hàng:</strong> <?php echo $thongTin['hoTen']; ?></span>
-        <span class="info-group"><strong>Email:</strong> <?php echo $thongTin['email']; ?></span>
-        
-    </p>
-    <p>
-    <span class="info-group"><strong>SĐT:</strong> <?php echo $thongTin['SDT']; ?></span>
-        <span class="info-group"><strong>Địa chỉ:</strong> <?php echo $thongTin['diaChi']; ?></span>
+    <span class="info-group"><strong>Ngày yêu cầu:</strong> <?php echo date("d/m/Y H:i", strtotime($thongTin['ngayYeuCau'])); ?></span>   
     </p>
 <?php else: ?>
-    <p>Không tìm thấy thông tin phiếu yêu cầu xuất sản phẩm.</p>
+    <p>Không tìm thấy thông tin phiếu .</p>
 <?php endif; ?>
         
     <div class="thanhcuon">
@@ -64,7 +68,7 @@ include('../class/clsxemchitietyeucauxuatSP.php');
                     <th>STT</th>
                     <th>Mã sản Phẩm</th>
                     <th>Tên sản phẩm</th>
-                    <th>Số lượng xuất</th>
+                    <th>Số lượng sản xuất</th>
                     <th>Đơn vị tính</th>
                     <th>Đơn giá</th>
                 </tr>
@@ -79,7 +83,7 @@ include('../class/clsxemchitietyeucauxuatSP.php');
                     <td><?php echo $stt++; ?></td>
                     <td><?php echo $row['maSP']; ?></td>   
                     <td><?php echo $row['tensanPham']; ?></td>    
-                    <td><?php echo $row['soLuongXuat']; ?></td>
+                    <td><?php echo $row['soLuongSX']; ?></td>
                     <td><?php echo $row['donViTinh']; ?></td> 
                     <td><?php echo number_format($row['donGia'], 0, ',', '.') . ' VNĐ'; ?></td>
                   </tr>
@@ -90,7 +94,7 @@ include('../class/clsxemchitietyeucauxuatSP.php');
             </tbody>
               </table>
             </div> <br>
-              <a href="yeucauxuatSP.php"><button class="btn" style="float: right;">Quay lại</button></a>
+              <a href="yeucauSX.php"><button class="btn" style="float: right;">Quay lại</button></a>
     </main>
 </div>
 <footer class="footer">
