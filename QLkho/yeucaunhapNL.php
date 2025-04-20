@@ -1,5 +1,5 @@
 <?php
-include("../class/clsdsyeucauSX.php");
+include("../class/clsdsyeucaunhapNL.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,8 +46,8 @@ include("../class/clsdsyeucauSX.php");
     </aside>
     <main class="content">
     <div class="header-section">
-        <h2>Danh Sách Yêu Cầu Xuất Sản Phẩm</h2>
-            <a href="themyeucauSX.php">
+        <h2>Danh Sách Yêu Cầu Nhập Nguyên Liệu</h2>
+            <a href="themyeucaunhapNL.php">
                 <button class="btn-create">+ Tạo yêu cầu</button>
             </a>
         </div>
@@ -68,15 +68,15 @@ include("../class/clsdsyeucauSX.php");
                     foreach ($danhsach as $index => $row) {
                         echo "<tr>";
                         echo "<td>" . ($index + 1) . "</td>";
-                        echo "<td> YCSXSP" . $row['idYeuCauSXSP'] . "</td>";
+                        echo "<td> YCNNL" . $row['idYeuCauNhapNL'] . "</td>";
                         echo "<td>" . date("d/m/Y H:i", strtotime($row['ngayYeuCau'])) . "</td>";
                         $status = '';
                         switch ($row['trangThai']) {
                             case 0:
-                                $status = "Chờ Sản Xuất";
+                                $status = "Chờ nhập";
                                 break;
                             case 1:
-                                $status = "Đã sản xuất";
+                                $status = "Đã nhập";
                                 break;
                             default:
                                break;
@@ -85,7 +85,7 @@ include("../class/clsdsyeucauSX.php");
                         echo "<td>" . $status . "</td>";
 
                         echo "<td>
-                          <a href='xemyeucauSX.php?id=" . $row['idYeuCauSXSP'] . "' class='btn-edit'>xem</a>
+                          <a href='xemyeucaunhapNL.php?id=" . $row['idYeuCauNhapNL'] . "' class='btn-edit'>xem</a>
 
                               </td>";
                               

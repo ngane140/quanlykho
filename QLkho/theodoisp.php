@@ -85,7 +85,7 @@
                         echo "<td>" . $product['maSP'] . "</td>"; 
                         echo "<td>" . $product['tensanPham'] . "</td>"; 
                         echo "<td>" . $product['donViTinh'] . "</td>"; 
-                        echo "<td>" . $product['soLuong'] . "</td>"; 
+                        echo "<td>" . $product['tongSoLuong'] . "</td>"; 
                         echo "<td>" . number_format($product['donGia'], 0, ',', '.') . " VND</td>"; 
                         echo "<td>
                         <a href='../class/clsxoasp.php?id=" . $product['idSanPham'] . "' class='btn-delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');\">Xóa</a>

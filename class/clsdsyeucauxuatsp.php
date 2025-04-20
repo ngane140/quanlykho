@@ -15,7 +15,8 @@ $conn = $kho->connect(); // Lấy kết nối từ phương thức connect()
 $danhsach = array();
 $sql = "SELECT yc.idYeuCauXuatSP, yc.ngayYeuCau, yc.trangThai,kh.hoTen
         FROM yeucauxuatsanpham yc
-        JOIN khachhang kh ON yc.idKhachHang = kh.idKhachHang";
+        JOIN khachhang kh ON yc.idKhachHang = kh.idKhachHang
+        ORDER BY yc.ngayYeuCau DESC";
 $result = $conn->query($sql);
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {

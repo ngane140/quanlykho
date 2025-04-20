@@ -16,11 +16,18 @@ if (empty($id)) {
 $filter = isset($_GET['filter']) ? $_GET['filter'] : '';
 
 // Xây dựng câu truy vấn SQL theo điều kiện lọc
-$sql = "SELECT * FROM nguyenlieu";
+//$sql = "SELECT * FROM nguyenlieu";
+$sql="SELECT 
+    maNL, 
+    MIN(tenNguyenLieu) AS tenNguyenLieu, 
+    MIN(donViTinh) AS donViTinh, 
+    SUM(soLuongTon) AS tongSoLuongTon
+FROM nguyenlieu
+GROUP BY maNL";
 if ($filter === 'available') {
-    $sql .= " WHERE soLuongTon > 0";
+    $sql .= " HAVING SUM(soLuongTon) > 0";
 } elseif ($filter === 'outofstock') {
-    $sql .= " WHERE soLuongTon = 0";
+    $sql .= " HAVING SUM(soLuongTon) = 0";
 }
 
 // Thực hiện truy vấn
