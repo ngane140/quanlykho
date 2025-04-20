@@ -10,7 +10,7 @@
 include("ketnoi.php");
 
 
-$id = isset($_GET['id']) ? intval($_GET['id']) : '';
+$id = isset($_GET['maSP']) ?($_GET['maSP']) : '';
 // Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
@@ -19,8 +19,8 @@ if (empty($id)) {
 $kho = new quanlikho();
 $conn = $kho->connect();
 
-if ($conn && $id > 0) {
-            $sqlDeleteProduct = "DELETE FROM sanpham WHERE idSanPham = $id";
+if ($conn && !empty($id)) {
+            $sqlDeleteProduct = "DELETE FROM sanpham WHERE maSP = '$id'";
             if ($conn->query($sqlDeleteProduct) === TRUE) {
                 echo "<script>alert('Xóa sản phẩm thành công!'); window.location.href='../QLkho/theodoisp.php';</script>";
             } else {

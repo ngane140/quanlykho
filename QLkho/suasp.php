@@ -52,7 +52,7 @@
                 <div class="message"><?php echo $errorMessage; ?></div>
             <?php endif; ?>
             <h2>Sửa Sản Phẩm</h2>
-            <form action="suasp.php?id=<?php echo $product['idSanPham']; ?>" method="POST">
+            <form action="suasp.php?maSP=<?php echo $product['maSP']; ?>" method="POST">
                <label for="maSP">Mã sản phẩm:</label>
                 <input type="text" id="maSP" name="maSP" value="<?php echo $product['maSP']; ?>" readonly />
 

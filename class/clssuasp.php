@@ -2,15 +2,15 @@
 include('ketnoi.php'); // Kết nối cơ sở dữ liệu
 
 // Kiểm tra kết nối và ID sản phẩm
-$id = isset($_GET['id']) ? intval($_GET['id']) : '';
+$maSP = isset($_GET['maSP']) ? $_GET['maSP'] : '';
 $kho = new quanlikho(); 
 $conn = $kho->connect();
 
 // Biến để chứa thông báo lỗi
 $errorMessage = "";
 
-if ($conn && $id > 0) {
-    $sql = "SELECT * FROM sanpham WHERE idSanPham = $id "; 
+if ($conn &&  $maSP !== '') {
+    $sql = "SELECT * FROM sanpham WHERE maSP = '$maSP'"; 
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -26,7 +26,6 @@ if ($conn && $id > 0) {
 
 // Kiểm tra nếu người dùng gửi form sửa
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $newProductCode = $_POST['maSP']; // Mã sản phẩm không thay đổi
     $tensanPham = $_POST['tensanPham']; 
     $moTa = $_POST['moTa'];
     $donGia = $_POST['donGia'];
@@ -43,8 +42,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         // Câu lệnh SQL để cập nhật sản phẩm
         $sql = "UPDATE sanpham 
-        SET maSP='$newProductCode', tensanPham='$tensanPham', moTa='$moTa', donGia='$donGia', donViTinh='$donViTinh',HSDChoPhep='$HSDChoPhep'
-        WHERE idSanPham = $id";
+        SET  tensanPham='$tensanPham', moTa='$moTa', donGia='$donGia', donViTinh='$donViTinh',HSDChoPhep='$HSDChoPhep'
+        WHERE  maSP = '$maSP'";
 
         if ($conn->query($sql) === TRUE) {
             echo "<script>alert('Cập nhật sản phẩm thành công!'); window.location.href='theodoisp.php';</script>";

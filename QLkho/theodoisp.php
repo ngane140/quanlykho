@@ -88,13 +88,13 @@
                         echo "<td>" . $product['tongSoLuong'] . "</td>"; 
                         echo "<td>" . number_format($product['donGia'], 0, ',', '.') . " VND</td>"; 
                         echo "<td>
-                        <a href='../class/clsxoasp.php?id=" . $product['idSanPham'] . "' class='btn-delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');\">Xóa</a>
-                        <a href='suasp.php?id=" . $product['idSanPham'] . "' class='btn-edit'>Sửa</a>
+                        <a href='../class/clsxoasp.php?maSP=" . $product['maSP'] . "' class='btn-delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?');\">Xóa</a>
+                        <a href='suasp.php?maSP=" . $product['maSP'] . "' class='btn-edit'>Sửa</a>
                       </td>";
                         echo "</tr>";
                     }
                 } else {
-                    echo "<tr><td colspan='6'>Không có sản phẩm nào!</td></tr>";
+                    echo "<tr><td colspan='7'>Không có sản phẩm nào!</td></tr>";
                 }
                 ?>
             </tbody>

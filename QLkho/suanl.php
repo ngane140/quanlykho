@@ -52,7 +52,8 @@
                 <div class="message"><?php echo $errorMessage; ?></div>
             <?php endif; ?>
             <h2>Sửa Nguyên Liệu</h2>
-            <form action="suanl.php?id=<?php echo $product['idNguyenLieu']; ?>" method="POST">
+            <form action="suanl.php?maNL=<?php echo $product['maNL']; ?>" method="POST">
+
                <label for="maNL">Mã nguyên liệu:</label>
                 <input type="text" id="maNL" name="maNL" value="<?php echo $product['maNL']; ?>" readonly />
 
