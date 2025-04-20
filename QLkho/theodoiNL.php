@@ -88,8 +88,9 @@
                         echo "<td>" . $product['donViTinh'] . "</td>"; 
                         echo "<td>" . $product['tongSoLuongTon'] . "</td>"; 
                         echo "<td>
-                        <a href='../class/clsxoanl.php?id=" . $product['idNguyenLieu'] . "' class='btn-delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa nguyên liệu này không?');\">Xóa</a>
-                        <a href='suanl.php?id=" . $product['idNguyenLieu'] . "' class='btn-edit'>Sửa</a>
+
+                    <a href='../class/clsxoanl.php?maNL=" . $product['maNL'] . "' class='btn-delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa nguyên liệu này không?');\">Xóa</a>
+                       <a href='suanl.php?maNL=" . $product['maNL'] . "' class='btn-edit'>Sửa</a>
                       </td>";
                         echo "</tr>";
                     }
