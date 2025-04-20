@@ -67,7 +67,7 @@
                         echo "<td>" . $product['maNL'] . "</td>"; 
                         echo "<td>" . $product['tenNguyenLieu'] . "</td>"; 
                         echo "<td>" . $product['donViTinh'] . "</td>"; 
-                        echo "<td>" . $product['soLuongTon'] . "</td>"; 
+                        echo "<td>" . $product['tongSoLuongTon'] . "</td>"; 
                         echo "</tr>";
                     }
                 } else {
