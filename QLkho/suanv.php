@@ -1,4 +1,6 @@
 <?php
+ini_set('session.cookie_lifetime', 0);
+require_once '../check_login.php';
     include("../class/clssuanv.php");
 ?>
 <!DOCTYPE html>
@@ -28,9 +30,9 @@
     <h1>Hệ Thống Quản Lý Kho</h1>
 </header>
 <div class="container">
-    <aside class="sidebar">
+<aside class="sidebar">
       <ul>
-        <li><a href="">Trang chủ</a></li>
+      <li><a href="index.php">Trang chủ</a></li>
         <li><a href="quanlinv.php">Quản lý nhân viên kho</a></li>
         <li><a href="theodoisp.php">Quản lý sản phẩm</a></li>
         <li><a href="theodoiNL.php">Quản lý nguyên liệu</a></li>
@@ -38,15 +40,15 @@
             Quản lý yêu cầu
             <ul class="dropdown-content">
               <li><a href="">Yêu cầu xuất nguyên liệu</a></li>
-              <li><a href="">Yêu cầu nhập nguyên liệu</a></li>
-              <li><a href="yeucausanxuat.php">Yêu cầu sản xuất</a></li>
+              <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
+              <li><a href="yeucauSX.php">Yêu cầu sản xuất</a></li>
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
             </ul>
        </li>
         <li><a href="">Tạo mã QR sản phẩm</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button class="logout">Đăng xuất</button>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
     <div class="form-container">

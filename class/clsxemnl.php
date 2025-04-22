@@ -4,12 +4,13 @@ include_once('ketnoi.php'); // Kết nối CSDL
 $kho = new quanlikho(); // Lớp kết nối
 
 // Lấy giá trị 'id' từ URL
-$id = isset($_GET['id']) ? $_GET['id'] : '';
+session_start();
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
 
-// Kiểm tra nếu không có id
+// Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
-    exit();
+    exit(); // Dừng thực thi chương trình
 }
 
 // Lấy giá trị filter từ URL nếu có

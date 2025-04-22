@@ -1,5 +1,8 @@
 <?php
+ini_set('session.cookie_lifetime', 0);
+require_once '../check_login.php';
 include('../class/clsthemyeucauxuatSP.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,7 +96,8 @@ include('../class/clsthemyeucauxuatSP.php');
         </table>
     </div> <br>
         <div style="float: right;">
-        <input type="hidden" id="idNguoiDung" name="idNguoiDung" value="<?php echo $idNguoiDung; ?>">
+        <input type="hidden" id="idNguoiDung" name="idNguoiDung" value="<?php echo $_SESSION['user']['id']; ?>">
+
 
             <button type="button" class="btnql" onclick="window.location.href='yeucauxuatSP.php'">Hủy bỏ</button>
             <button id="luuPhieu" class="btn" onclick="kiemTraTruocKhiLuu(event)">Lưu phiếu</button>
