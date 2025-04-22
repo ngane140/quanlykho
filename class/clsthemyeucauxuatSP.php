@@ -3,9 +3,15 @@ include('ketnoi.php');
 date_default_timezone_set('Asia/Ho_Chi_Minh');
 $kho = new quanlikho();
 $conn = $kho->connect();
-$idNguoiDung = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['idNguoiDung']) ? (int)$_POST['idNguoiDung'] : 0);
+// $idNguoiDung = isset($_GET['id']) ? (int)$_GET['id'] : (isset($_POST['idNguoiDung']) ? (int)$_POST['idNguoiDung'] : 0);
 
-if ($idNguoiDung <= 0) {
+// if ($idNguoiDung <= 0) {
+//     echo "Không có id người dùng nha!";
+//     exit();
+// }
+session_start(); // Đảm bảo session được khởi tạo
+$idNguoiDung = isset($_SESSION['user']['id']) ? (int)$_SESSION['user']['id'] : 0;
+if (empty($idNguoiDung)) {
     echo "Không có id người dùng nha!";
     exit();
 }

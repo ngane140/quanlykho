@@ -1,5 +1,8 @@
 <?php
+ini_set('session.cookie_lifetime', 0);
+require_once '../check_login.php';
 include_once('../class/clsthongtin.php'); 
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

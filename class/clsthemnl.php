@@ -1,9 +1,9 @@
 <?php
+session_start();
 include("ketnoi.php");
-// Lấy giá trị của tham số 'id' từ URL
-$id = isset($_GET['id']) ? $_GET['id'] : ''; // Nếu không có 'id', gán giá trị rỗng
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
 
-// Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
+// Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
     exit(); // Dừng thực thi chương trình

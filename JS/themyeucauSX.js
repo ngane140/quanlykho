@@ -130,7 +130,7 @@ function kiemTraTruocKhiLuu(event) {
     xhr.onload = function() {
         console.log(xhr.responseText); // Log phản hồi để kiểm tra chi tiết lỗi
         if (xhr.status === 200) {
-            if (xhr.responseText === 'success') {
+            if (xhr.responseText.trim() === 'success') {
                 alert("Yêu cầu sản xuất sản phẩm đã được lưu!");
                 window.location.href = 'yeucauSX.php'; // Chuyển hướng sau khi lưu thành công
             } else {

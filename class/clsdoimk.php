@@ -4,15 +4,23 @@ include_once('ketnoi.php'); // Đảm bảo bạn đã kết nối với cơ s�
 
 $kho = new quanlikho();
 
-// Lấy giá trị của tham số 'id' từ URL
-$id = isset($_GET['id']) ? $_GET['id'] : ''; // Nếu không có 'id', gán giá trị rỗng
+// // Lấy giá trị của tham số 'id' từ URL
+// $id = isset($_GET['id']) ? $_GET['id'] : ''; // Nếu không có 'id', gán giá trị rỗng
 
-// Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
+// // Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
+// if (empty($id)) {
+//     echo "Không có id người dùng!";
+//     exit(); // Dừng thực thi chương trình
+// }
+// Lấy idNguoiDung từ session
+session_start();
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
+
+// Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
     exit(); // Dừng thực thi chương trình
 }
-
 // Lấy thông tin người dùng từ cơ sở dữ liệu theo id
 $sql = "SELECT * FROM nguoidung WHERE idNguoiDung = '$id'";
 $result = $kho->connect()->query($sql);
@@ -48,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
      // Redirect để tránh gửi lại form khi refresh
-     header("Location: ".$_SERVER['PHP_SELF']."?id=".$id);
+     header("Location: ".$_SERVER['PHP_SELF']);
      exit();
 }
 // Hiển thị thông báo nếu có
