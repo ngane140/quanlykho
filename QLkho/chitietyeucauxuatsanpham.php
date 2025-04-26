@@ -62,7 +62,7 @@ else {
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
             </ul>
        </li>
-        <li><a href="">Tạo mã QR sản phẩm</a></li>
+       <li><a href="dsQRSP.php">Tạo mã QR sản phẩm</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
       <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
