@@ -16,23 +16,39 @@ class qlykho{
 		}
 	}
 
-    public function laycot($sql)
-	{
-		$link=$this->connect();
-		$ketqua = mysql_query($sql, $link);
-		$i=mysql_num_rows($ketqua);
-		$trave='';
-		if($i>0)
-		{
-			while($row=mysql_fetch_array($ketqua))
-			{
-				$gt=$row[0];
-				$trave=$gt;
-			}
-		}
-		return $trave;
-	}
-
+    public function laycot($sql, $trave_mang = false) {
+        $link = $this->connect();
+        $ketqua = mysql_query($sql, $link);
+        $i = mysql_num_rows($ketqua);
+        
+        if(!$trave_mang) {
+            // Trả về giá trị đơn như cũ
+            if($i > 0) {
+                $row = mysql_fetch_array($ketqua);
+                return $row[0];
+            }
+            return '';
+        } else {
+            // Trả về mảng kết quả đầu tiên
+            if($i > 0) {
+                return mysql_fetch_assoc($ketqua);
+            }
+            return array();
+        }
+    }
+    public function laydanhsach($sql) {
+        $link = $this->connect();
+        $ketqua = mysql_query($sql, $link);
+        $danhsach = array();
+        
+        if(mysql_num_rows($ketqua) > 0) {
+            while($row = mysql_fetch_assoc($ketqua)) {
+                $danhsach[] = $row;
+            }
+        }
+        
+        return $danhsach;
+    }
     public function themxoasua($sql){
 		$link=$this->connect();
 		if(mysql_query($sql,$link)){
@@ -111,14 +127,34 @@ class qlykho{
 		if($i>0)
 		{
 			$dem=1;
+            echo ' <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã sản phẩm</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng xuất</th>
+                    </tr>
+                </thead>
+                <tbody>';
 			while($row=mysql_fetch_array($ketqua))
 			{
+                
                 $maSP = $row['maSP'];
                 $laytenSP= $this->laycot("select tensanPham from sanpham sp join chitietyeucauxuatsanpham ct on sp.maSP = ct.maSP where ct.maSP = '$maSP' ");
-                $laysoluongSP= $this->laycot("select soLuongXuat from chitietyeucauxuatsanpham where maSP='$maSP'");
-                echo ''.$laytenSP.' x số lượng: '.$laysoluongSP.' <br>';
-				
+                $laysoluongSP= $row['soLuongXuat'];
+            
+                echo '<tr>
+                        <td>'.$dem.'</td>
+                        <td >'.$maSP.'</td>
+                        <td >'.$laytenSP.'</td>
+                        <td>'.$laysoluongSP.'</td>
+                    </tr>';
+				$dem++;
+
 			}   
+            echo '</tbody>
+            </table>';
 		}
 		else
 		{
