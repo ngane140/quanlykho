@@ -1,14 +1,16 @@
 <?php
+session_start();
 include_once('ketnoi.php'); // Đảm bảo bạn đã kết nối với cơ sở dữ liệu
+$kho = new quanlikho(); // Lớp kết nối của bạn
 // Lấy giá trị của tham số 'id' từ URL
-$id = isset($_GET['id']) ? $_GET['id'] : ''; // Nếu không có 'id', gán giá trị rỗng
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
 
-// Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
+// Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
     exit(); // Dừng thực thi chương trình
 }
-$kho = new quanlikho(); // Lớp kết nối của bạn
+
 
 // Truy vấn để lấy danh sách nhân viên kho từ cơ sở dữ liệu
 $sql = "SELECT * FROM nguoidung WHERE idLoaiNguoiDung = 3";  

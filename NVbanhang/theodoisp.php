@@ -1,5 +1,8 @@
 <?php
+    ini_set('session.cookie_lifetime', 0);
+require_once '../check_login.php';
     include("../class/clsxemsp.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,13 +37,13 @@
     <main class="content">
         <h2>Danh sách sản phẩm tồn kho</h2>
         <div class="filter-buttons">
-                <a href="?id=<?php echo $id; ?>&filter=available">
+                <a href="?filter=available">
                     <button class="btn-filter  <?php echo ($filter === 'available') ? 'active' : ''; ?>">Còn hàng</button>
                 </a>
-                <a href="?id=<?php echo $id; ?>&filter=outofstock">
+                <a href="?filter=outofstock">
                     <button class="btn-filter  <?php echo ($filter === 'outofstock') ? 'active' : ''; ?>">Hết hàng</button>
                 </a>
-                <a href="?id=<?php echo $id; ?>">
+                <a href="theodoisp.php">
                     <button class="btn-filter  <?php echo ($filter === '') ? 'active' : ''; ?>">Tất cả</button>
                 </a>
             </div>

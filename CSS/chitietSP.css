@@ -1,0 +1,26 @@
+.content {
+    background: #fff; /* nền trắng */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    width: 800px; /* chỉ rộng 600px thôi */
+    margin: 20px auto; /* canh giữa màn hình */
+    height: 70%;
+}
+
+.content h2 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.content p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1px;
+}
+
+.content strong {
+    color: #555;
+}
