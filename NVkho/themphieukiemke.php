@@ -38,17 +38,17 @@ include_once('../class/clsthemphieukiemke.php');
 </header>
 <div class="container">
 <aside class="sidebar">
-    <ul>
-        <li><a href="">Trang chủ</a></li>
-        <li><a href="">Yêu cầu nhập nguyên liệu</a></li>
+      <ul>
+      <li><a href="index.php">Trang chủ</a></li>
+        <li><a href="YCnhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
         <li><a href="theodoisp.php">Theo dõi sản phẩm</a></li>
         <li><a href="theodoiNL.php">Theo dõi nguyên liệu</a></li>
         <li><a href="dskiemke.php">Kiểm kê nguyên liệu</a></li>
-        <li><a href="">Tạo mã QR nguyên liệu</a></li>
+        <li><a href="dsQRNL.php">Tạo mã QR nguyên liệu</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
-    </ul>
-    <button class="logout">Đăng xuất</button>
-</aside>    
+      </ul>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+    </aside>
 <main class="content">
     <h2>Thêm Phiếu Kiểm Kê</h2>
     <?php if ($thongTinNguoiDung): ?>
