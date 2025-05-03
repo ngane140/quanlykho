@@ -1,4 +1,3 @@
-
 <?php
 ini_set('session.cookie_lifetime', 0);
 require_once '../check_login.php';
@@ -9,11 +8,12 @@ include('../class/clsthemYCnhapNL.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thông tin NVBH</title>
+  <title>Thêm yêu cầu nhập nguyên liệu</title>
   <link rel="stylesheet" href="../CSS/cssthongtin.css">
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
+  <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
   <script src="../JS/themyeucaunhapNL.js"></script>
   <style>
@@ -29,7 +29,7 @@ include('../class/clsthemYCnhapNL.php');
   </header>
   <div class="container">
   <aside class="sidebar">
-      <ul>
+  <ul>
       <li><a href="index.php">Trang chủ</a></li>
         <li><a href="quanlinv.php">Quản lý nhân viên kho</a></li>
         <li><a href="theodoisp.php">Quản lý sản phẩm</a></li>
@@ -37,9 +37,9 @@ include('../class/clsthemYCnhapNL.php');
         <li class="dropdown">
             Quản lý yêu cầu
             <ul class="dropdown-content">
-              <li><a href="">Yêu cầu xuất nguyên liệu</a></li>
+              <li><a href="yeucauxuatNL.php">Yêu cầu xuất nguyên liệu</a></li>
               <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
-              <li><a href="yeucauSX.php">Yêu cầu sản xuất</a></li>
+              <li><a href="yeucauSX.php">Yêu cầu sản xuất sản phẩm</a></li>
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
             </ul>
        </li>
@@ -49,9 +49,11 @@ include('../class/clsthemYCnhapNL.php');
       <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-<h2>Thêm Yêu Cầu Sản Xuất Sản Phẩm</h2>
+<h2>Thêm Yêu Cầu Nhập Nguyên Liệu</h2>
 
 <form method="post" action="">
+
+
 
 <table>
     <tr>
@@ -66,7 +68,7 @@ include('../class/clsthemYCnhapNL.php');
 
    
     <div style="position: relative;">
-        <input type="text" id="timSP" onkeyup="timNguyenLieu()" autocomplete="off" placeholder="Tìm sản phẩm   ..">
+        <input type="text" id="timSP" onkeyup="timNguyenLieu()" autocomplete="off" placeholder="Tìm nguyên liệu   ..">
         <input type="hidden" id="maSP">
         <div id="suggestions" style=" max-height: 80px; 
     overflow-y: auto;
@@ -84,7 +86,7 @@ include('../class/clsthemYCnhapNL.php');
             <thead>
                 <tr>
                     <th>Mã Nguyên Liệu</th>
-                    <th>Tên Nguyên :iệu</th>
+                    <th>Tên Nguyên Liệu</th>
                     <th>Số lượng</th>
                     <th>Xóa</th>
                     
@@ -98,7 +100,6 @@ include('../class/clsthemYCnhapNL.php');
         <div style="float: right;">
         
         <input type="hidden" id="idNguoiDung" name="idNguoiDung" value="<?php echo $_SESSION['user']['id']; ?>">
-
 
             <button type="button" class="btnql" onclick="window.location.href='yeucaunhapNL.php'">Hủy bỏ</button>
             <button id="luuPhieu" class="btn" onclick="kiemTraTruocKhiLuu(event)">Lưu phiếu</button>

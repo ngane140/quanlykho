@@ -1,30 +1,33 @@
 <?php
 ini_set('session.cookie_lifetime', 0);
 require_once '../check_login.php';
-
+include("../class/clsdsnhanyeucauxuatNL.php");
+$p = new qlykho();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Đổi mật khẩu QLK</title>
-  <link rel="stylesheet" href="../CSS/doimatkhau.css">
-  <link rel="stylesheet" href="../CSS/dropdown.css">
+  <title>Yêu cầu xuất Nguyên liệu</title>
   <link rel="stylesheet" href="../CSS/style.css">
+  <link rel="stylesheet" href="../CSS/danhsach.css">
+  <link rel="stylesheet" href="../CSS/dropdown.css">
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
       color: inherit; /* Giữ nguyên màu chữ */
-    } 
+    }
+
   </style>
 </head>
 <body>
 <header class="header">
     <h1>Hệ Thống Quản Lý Kho</h1>
-  </header>
-  <div class="container">
-  <aside class="sidebar">
+</header>
+<div class="container">
+<aside class="sidebar">
       <ul>
       <li><a href="index.php">Trang chủ</a></li>
         <li><a href="quanlinv.php">Quản lý nhân viên kho</a></li>
@@ -45,12 +48,20 @@ require_once '../check_login.php';
       <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-        <h2>Trang chủ</h2>
-    
+        <h2>Danh sách yêu cầu xuất sản phẩm</h2>
+        
+           <?php
+           $p->xemdsyeucauxuatnl("select * from yeucauxuatnguyenlieu");
+           
+           ?>
+           
     </main>
-  </div>
-  <footer class="footer">
+
+    
+</div>
+<footer class="footer">
     <p>Bản quyền © 2025 - Hệ Thống Quản Lý Kho</p>
-  </footer>
+</footer>
+
 </body>
 </html>
