@@ -178,15 +178,7 @@ else {
            
             <?php
                 $p->chitietsanpham("select * from chitietyeucauxuatsanpham where idYeuCauXuatSP='$layid'");
-            ?>
-                    
-<<<<<<< HEAD
-                
-=======
-                </tbody>
-            </table>
-            <a href="yeucauxuatSP.php"><button class="btn" style="float: right;">Quay lại</button></a>
->>>>>>> main
+            ?>               
         </main>
 
         
