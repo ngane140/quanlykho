@@ -35,9 +35,9 @@ require_once '../check_login.php';
         <li class="dropdown">
             Quản lý yêu cầu
             <ul class="dropdown-content">
-              <li><a href="">Yêu cầu xuất nguyên liệu</a></li>
+              <li><a href="yeucauxuatNL.php">Yêu cầu xuất nguyên liệu</a></li>
               <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
-              <li><a href="yeucauSX.php">Yêu cầu sản xuất</a></li>
+              <li><a href="yeucauSX.php">Yêu cầu sản xuất sản phẩm</a></li>
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
             </ul>
        </li>

@@ -8,7 +8,7 @@ include('../class/clsthemyeucauSX.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thông tin NVBH</title>
+  <title>Thêm yêu cầu sản xuất sản phẩm</title>
   <link rel="stylesheet" href="../CSS/cssthongtin.css">
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
@@ -36,9 +36,9 @@ include('../class/clsthemyeucauSX.php');
         <li class="dropdown">
             Quản lý yêu cầu
             <ul class="dropdown-content">
-              <li><a href="">Yêu cầu xuất nguyên liệu</a></li>
+              <li><a href="yeucauxuatNL.php">Yêu cầu xuất nguyên liệu</a></li>
               <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
-              <li><a href="yeucauSX.php">Yêu cầu sản xuất</a></li>
+              <li><a href="yeucauSX.php">Yêu cầu sản xuất sản phẩm</a></li>
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
             </ul>
        </li>

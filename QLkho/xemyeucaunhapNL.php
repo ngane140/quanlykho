@@ -12,6 +12,7 @@ include('../class/clschitietyeucaunhapNL.php');
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
+  <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
   <style>
      a {
@@ -39,9 +40,9 @@ include('../class/clschitietyeucaunhapNL.php');
         <li class="dropdown">
             Quản lý yêu cầu
             <ul class="dropdown-content">
-              <li><a href="">Yêu cầu xuất nguyên liệu</a></li>
+              <li><a href="yeucauxuatNL.php">Yêu cầu xuất nguyên liệu</a></li>
               <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
-              <li><a href="yeucauSX.php">Yêu cầu sản xuất</a></li>
+              <li><a href="yeucauSX.php">Yêu cầu sản xuất sản phẩm</a></li>
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
             </ul>
        </li>
@@ -52,6 +53,9 @@ include('../class/clschitietyeucaunhapNL.php');
     </aside>
     <main class="content">
     <h2>Yêu cầu nhập Nguyên Liệu</h2>
+    <!-- <form  method="post">
+      <button class="btn-create" name="nut" value="Xac nhan xuat" type="submit" style="float: right;">Xác nhận Xuất</button>
+    </form> -->
     <?php if ($thongTin): ?>
         <p>
         <span class="info-group"><strong>Mã phiếu:</strong> <?php echo "YCNNL" . $thongTin['idYeuCauNhapNL']; ?></span>  
@@ -62,7 +66,8 @@ include('../class/clschitietyeucaunhapNL.php');
 <?php else: ?>
     <p>Không tìm thấy thông tin phiếu .</p>
 <?php endif; ?>
-        
+
+
     <div class="thanhcuon">
         <table class="product-table">
             <thead>
@@ -96,6 +101,7 @@ include('../class/clschitietyeucaunhapNL.php');
             </tbody>
               </table>
             </div> <br>
+            
               <a href="yeucaunhapNL.php"><button class="btn" style="float: right;">Quay lại</button></a>
     </main>
 </div>
