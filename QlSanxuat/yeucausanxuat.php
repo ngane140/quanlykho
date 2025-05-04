@@ -39,7 +39,7 @@ $p = new qlykho();
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
-            <li>Yêu cầu xuất nguyên liệu</li>
+            <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>

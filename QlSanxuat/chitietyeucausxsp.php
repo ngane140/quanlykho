@@ -99,9 +99,9 @@ else if($laytrangThai == 3) {
                     <?php elseif($laytrangThai == 3): ?>
                         <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucausanxuat.php'">Quay lại</button> 
                         <button class="btn-create" 
-                                onclick="window.open('themyeucauSX.php', '_blank')" 
+                                onclick="window.open('taophieuxuatnguyenlieu.php', '_blank')" 
                                 style="background-color: #4CAF50;">
-                            Tạo phiếu nhập nguyên liệu
+                            Tạo phiếu xuất nguyên liệu
                         </button>                   
                         <button class="btn-create" name="nut" value="San Xuat San Pham" type="submit" style="margin-right: 100px;">Sản xuất sản phẩm</button>
                         <?php endif; ?>
@@ -151,7 +151,7 @@ else if($laytrangThai == 3) {
 
                                         if (!$coTheSanXuat) {
                                             echo '<script>
-                                            alert("'.$thongBao.'");
+                                            alert("'.$thongBao.' Vui lòng tạo Phiếu xuất nguyên liệu.");
                                             window.location.href = "chitietyeucausxsp.php?id='.$layid.'";
                                             </script>';
                                         } 
