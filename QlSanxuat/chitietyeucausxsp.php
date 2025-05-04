@@ -12,7 +12,7 @@ $laytrangThai= $p->laycot("select trangThai from yeucausanxuatsanpham where idYe
 
 
 if ($laytrangThai == 0) {
-    $laytrangThaiText = "Chờ xử lý";
+    $laytrangThaiText = "Chờ sản xuấtxuất";
 } else if($laytrangThai == 1) {
     $laytrangThaiText = "Đang sản xuất";
 }else if($laytrangThai == 2) {
@@ -109,40 +109,43 @@ else if($laytrangThai == 3) {
                             if (isset($_POST['nut'])) {
                                 switch ($_POST['nut']) {
                                     case 'San Xuat San Pham': {
-                                       // 1. Lấy thông tin yêu cầu sản xuất (join với bảng chính)
-                                        $yeuCauSX = $p->laycot("SELECT c.maSP, c.soLuongSX 
+                                        // 1. Lấy danh sách yêu cầu sản xuất (không dùng GROUP BY để lấy tất cả sản phẩm)
+                                        $dsYeuCauSX = $p->laydanhsach("SELECT c.maSP, c.soLuongSX 
                                                                     FROM chitietyeucausanxuatsanpham c
                                                                     JOIN yeucausanxuatsanpham y ON c.idYeuCauSXSP = y.idYeuCauSXSP
-                                                                    WHERE c.idYeuCauSXSP = '$layid'", true);
-
-                                        if(empty($yeuCauSX)) {
-                                        echo '<script>alert("Không tìm thấy yêu cầu sản xuất");</script>';
-                                        break;
+                                                                    WHERE c.idYeuCauSXSP = '$layid'");
+                                        if(empty($dsYeuCauSX)) {
+                                            echo '<script>alert("Không tìm thấy yêu cầu sản xuất");</script>';
+                                            break;
                                         }
-
-                                        $maSP = $yeuCauSX['maSP'];
-                                        $soLuongSanXuat = $yeuCauSX['soLuongSX'];
-
-                                        // 2. Lấy danh sách nguyên liệu cần cho sản phẩm (đúng tên bảng)
-                                        $dsNguyenLieu = $p->laydanhsach("SELECT maNL, soLuong FROM nguyenlieu_sanpham WHERE maSP = '$maSP'");
 
                                         $coTheSanXuat = true;
                                         $thongBao = "";
 
-                                        // 3. Kiểm tra đủ nguyên liệu
-                                        foreach ($dsNguyenLieu as $nl) {
-                                            $maNL = $nl['maNL'];
-                                            $soLuongCan = $nl['soLuong'] * $soLuongSanXuat;
+                                        // Duyệt qua từng sản phẩm trong yêu cầu sản xuất
+                                        foreach ($dsYeuCauSX as $yeuCauSX) {
+                                            $maSP = $yeuCauSX['maSP'];
+                                            $soLuongSanXuat = $yeuCauSX['soLuongSX'];
 
-                                            $tongTonKho = $p->laycot("SELECT SUM(soLuongTon) FROM nguyenlieu 
-                                                    WHERE maNL = '$maNL' AND trangThai = 1");
+                                            // 2. Lấy danh sách nguyên liệu cần cho sản phẩm
+                                            $dsNguyenLieu = $p->laydanhsach("SELECT maNL, soLuong FROM nguyenlieu_sanpham WHERE maSP = '$maSP'");
 
-                                            if ($tongTonKho < $soLuongCan) {
-                                                $coTheSanXuat = false;
-                                                $tenNL = $p->laycot("SELECT tenNguyenLieu FROM nguyenlieu WHERE maNL = '$maNL' LIMIT 1");
-                                                $thongBao .= "Không đủ nguyên liệu $tenNL (Cần: $soLuongCan, Tồn: $tongTonKho)\\n";
-                                                $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 3 
-                                                WHERE idYeuCauSXSP = '$layid'");
+                                            // 3. Kiểm tra đủ nguyên liệu cho từng sản phẩm
+                                            foreach ($dsNguyenLieu as $nl) {
+                                                $maNL = $nl['maNL'];
+                                                $soLuongCan = $nl['soLuong'] * $soLuongSanXuat;
+
+                                                $tongTonKho = $p->laycot("SELECT SUM(soLuongTon) FROM nguyenlieu 
+                                                                        WHERE maNL = '$maNL' AND trangThai = 1");
+
+                                                if ($tongTonKho < $soLuongCan) {
+                                                    $coTheSanXuat = false;
+                                                    $tenNL = $p->laycot("SELECT tenNguyenLieu FROM nguyenlieu WHERE maNL = '$maNL' LIMIT 1");
+                                                    $tenSP = $p->laycot("SELECT tenSanPham FROM sanpham WHERE maSP = '$maSP' LIMIT 1");
+                                                    $thongBao .= "Không đủ nguyên liệu $tenNL cho sản phẩm $tenSP (Cần: $soLuongCan, Tồn: $tongTonKho)\\n";
+                                                    $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 3 
+                                                                    WHERE idYeuCauSXSP = '$layid'");
+                                                }
                                             }
                                         }
 
@@ -153,35 +156,42 @@ else if($laytrangThai == 3) {
                                             </script>';
                                         } 
                                         else {
-                                            // 4. Trừ nguyên liệu theo FIFO
-                                            foreach ($dsNguyenLieu as $nl) {
-                                                $maNL = $nl['maNL'];
-                                                $soLuongConLaiCan = $nl['soLuong'] * $soLuongSanXuat;
+                                            // 4. Trừ nguyên liệu theo FIFO cho từng sản phẩm
+                                            foreach ($dsYeuCauSX as $yeuCauSX) {
+                                                $maSP = $yeuCauSX['maSP'];
+                                                $soLuongSanXuat = $yeuCauSX['soLuongSX'];
 
-                                                $dsLoNL = $p->laydanhsach("SELECT idNguyenLieu, soLuongTon FROM nguyenlieu 
-                                                            WHERE maNL = '$maNL' AND soLuongTon > 0 AND trangThai = 1
-                                                            ORDER BY ngayNhap ASC");
+                                                $dsNguyenLieu = $p->laydanhsach("SELECT maNL, soLuong FROM nguyenlieu_sanpham WHERE maSP = '$maSP'");
 
-                                                foreach ($dsLoNL as $loNL) {
-                                                if ($soLuongConLaiCan <= 0) break;
+                                                foreach ($dsNguyenLieu as $nl) {
+                                                    $maNL = $nl['maNL'];
+                                                    $soLuongConLaiCan = $nl['soLuong'] * $soLuongSanXuat;
 
-                                                    $idNguyenLieu = $loNL['idNguyenLieu'];
-                                                    $soLuongLo = $loNL['soLuongTon'];
-                                                    $soLuongTru = min($soLuongLo, $soLuongConLaiCan);
+                                                    $dsLoNL = $p->laydanhsach("SELECT idNguyenLieu, soLuongTon FROM nguyenlieu 
+                                                                            WHERE maNL = '$maNL' AND soLuongTon > 0 AND trangThai = 1
+                                                                            ORDER BY ngayNhap ASC");
 
-                                                    $p->themxoasua("UPDATE nguyenlieu SET soLuongTon = soLuongTon - $soLuongTru 
-                                                        WHERE idNguyenLieu = '$idNguyenLieu'");
+                                                    foreach ($dsLoNL as $loNL) {
+                                                        if ($soLuongConLaiCan <= 0) break;
 
-                                                    $soLuongConLaiCan -= $soLuongTru;
+                                                        $idNguyenLieu = $loNL['idNguyenLieu'];
+                                                        $soLuongLo = $loNL['soLuongTon'];
+                                                        $soLuongTru = min($soLuongLo, $soLuongConLaiCan);
+
+                                                        $p->themxoasua("UPDATE nguyenlieu SET soLuongTon = soLuongTon - $soLuongTru 
+                                                                    WHERE idNguyenLieu = '$idNguyenLieu'");
+
+                                                        $soLuongConLaiCan -= $soLuongTru;
+                                                    }
                                                 }
                                             }
 
                                             // 6. Cập nhật trạng thái yêu cầu
                                             $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 1
-                                            WHERE idYeuCauSXSP = '$layid'");
+                                                        WHERE idYeuCauSXSP = '$layid'");
 
                                             echo '<script>
-                                            alert("Đã chuyển sang trạng thái đang sản xuất '.$soLuongSanXuat.' sản phẩm '.$laytensanPham.'");
+                                            alert("Đã chuyển sang trạng thái đang sản xuất yêu cầu '.$layid.'");
                                             window.location.href = "chitietyeucausxsp.php?id='.$layid.'";
                                             </script>';
                                         }
@@ -200,7 +210,10 @@ else if($laytrangThai == 3) {
                                         // }
                                         // break;
                                         $dssanpham = $p->laydanhsach("SELECT * FROM chitietyeucausanxuatsanpham WHERE idYeuCauSXSP='$layid'");
-                
+                                        $dsYeuCauSX = $p->laydanhsach("SELECT c.maSP, c.soLuongSX 
+                                                                    FROM chitietyeucausanxuatsanpham c
+                                                                    JOIN yeucausanxuatsanpham y ON c.idYeuCauSXSP = y.idYeuCauSXSP
+                                                                    WHERE c.idYeuCauSXSP = '$layid'");
                                         $success = true;
                                         
                                         foreach ($dssanpham as $nl) {
@@ -223,18 +236,18 @@ else if($laytrangThai == 3) {
                                                 break;
                                             }
                                         }
+                                            if ($success) {
+                                                // Cập nhật trạng thái yêu cầu nhập
+                                                $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 2 WHERE idYeuCauSXSP = '$layid'");
+                                                
+                                                echo '<script> 
+                                                        alert("Sản phẩm đã nhập vào kho thành công");
+                                                        window.location.href = "chitietyeucausxsp.php?id='.$layid.'";
+                                                    </script>';
+                                            } else {
+                                                echo '<script>alert("Có lỗi xảy ra khi nhập kho");</script>';
+                                            }
                                         
-                                        if ($success) {
-                                            // Cập nhật trạng thái yêu cầu nhập
-                                            $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 2 WHERE idYeuCauSXSP = '$layid'");
-                                            
-                                            echo '<script> 
-                                                    alert("Nhập kho thành công '.$laysoLuongSX.' sản phẩm '.$laytensanPham.'");
-                                                    window.location.href = "chitietyeucausxsp.php?id='.$layid.'";
-                                                </script>';
-                                        } else {
-                                            echo '<script>alert("Có lỗi xảy ra khi nhập kho");</script>';
-                                        }
                                         break;
                                     }
                                 }

@@ -78,7 +78,13 @@ include("../class/clsdsyeucauSX.php");
                                 $status = "Chờ Sản Xuất";
                                 break;
                             case 1:
+                                $status = "Đang sản xuất";
+                                break;
+                            case 2:
                                 $status = "Đã sản xuất";
+                                break;
+                            case 3:
+                                $status = "Chờ nhập nguyên liệu";
                                 break;
                             default:
                                break;
