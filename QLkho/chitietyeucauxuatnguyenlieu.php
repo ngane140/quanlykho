@@ -68,7 +68,7 @@ else {
     
         <main class="content">
             <div class="header-section">
-                <h2>Chi tiết phiếu yêu cầu xuất sản phẩm </h2>
+                <h2>Chi tiết phiếu yêu cầu xuất nguyên liệu </h2>
                 <h2>Mã phiếu yêu cầu: <?php echo $layid ?></h2>
                 <form  method="post">
                     <?php if($laytrangThai == 0): ?>
