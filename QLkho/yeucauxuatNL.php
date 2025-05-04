@@ -19,6 +19,11 @@ $p = new qlykho();
       text-decoration: none; /* Xóa gạch chân */
       color: inherit; /* Giữ nguyên màu chữ */
     }
+    .scrollable-table {
+    max-height: 350px; /* hoặc chiều cao bạn muốn */
+    overflow-y: auto;
+    border: 1px solid #ccc; /* tùy chọn, giúp dễ nhìn */
+}
 
   </style>
 </head>

@@ -11,6 +11,7 @@ include('../class/clschitietyeucauSX.php');
   <title>Yêu cầu xuất sản phẩm</title>
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
+  <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
   <style>
