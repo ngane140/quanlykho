@@ -65,7 +65,8 @@ class qlykho{
         $i=mysql_num_rows($ketqua);
         if($i>0)
         {
-            echo '<table class="product-table">
+            echo '<div class="scrollable-table">
+            <table class="product-table">
             <thead>
                 <tr>
                     <th>STT</th>
@@ -105,7 +106,8 @@ class qlykho{
                 
             }
             echo '</tbody>
-                </table>';
+                </table>
+                </div>';
             
         }
         else
