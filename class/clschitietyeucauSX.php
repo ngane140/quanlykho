@@ -29,7 +29,7 @@ $stmt->close();
 $sqlChiTiet = "SELECT ctx.maSP,sp.tensanPham, ctx.soLuongSX,sp.donViTinh,sp.donGia
                FROM chitietyeucausanxuatsanpham ctx
                JOIN sanpham sp ON ctx.maSP = sp.maSP
-               WHERE ctx.idYeuCauSXSP = ?";
+               WHERE ctx.idYeuCauSXSP = ? group by maSP";
 $stmt2 = $conn->prepare($sqlChiTiet);
 $stmt2->bind_param("i", $idYCSX);
 

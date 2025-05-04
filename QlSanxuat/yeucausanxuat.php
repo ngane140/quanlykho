@@ -19,6 +19,12 @@ $p = new qlykho();
       text-decoration: none; /* Xóa gạch chân */
       color: inherit; /* Giữ nguyên màu chữ */
     }
+    .scrollable-table {
+    max-height: 350px; /* hoặc chiều cao bạn muốn */
+    overflow-y: auto;
+    border: 1px solid #ccc; /* tùy chọn, giúp dễ nhìn */
+}
+
 
   </style>
 </head>
@@ -44,7 +50,7 @@ $p = new qlykho();
       <button class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-        <h2>Danh sách yêu cầu sản xuấtxuất sản phẩm</h2>
+        <h2>Danh sách yêu cầu sản xuất sản phẩm</h2>
         
            <?php
            $p->xemdsyeucausanxuatsp("select * from yeucausanxuatsanpham");
