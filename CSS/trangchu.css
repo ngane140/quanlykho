@@ -1,0 +1,107 @@
+:root {
+    --primary-color: #3498db;
+    --secondary-color: #2980b9;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+  }
+  
+  .stats-grid {
+  display: flex;
+  flex-wrap: wrap; /* Cho phép các item xuống dòng */
+  gap: 1.5rem;
+  margin: 2rem 0;
+  justify-content: center; /* Căn giữa thay vì flex-start */
+}
+
+.stat-card {
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+  text-align: center;
+  flex: 1 1 250px; /* Có thể co giãn nhưng tối thiểu 250px */
+  min-width: 250px; /* Đảm bảo không bị thu nhỏ quá mức */
+  max-width: 300px; /* Giới hạn chiều rộng tối đa */
+}
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .stat-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  
+  .stat-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark-color);
+  }
+  
+  .stat-card .count {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+  }
+  
+  .recent-activity {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-top: 2rem;
+  }
+  
+  .activity-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: var(--primary-color);
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+  
+  .badge-warning {
+    background-color: var(--warning-color);
+    color: white;
+  }
+  
+  .badge-success {
+    background-color: var(--success-color);
+    color: white;
+  }
+  
+  .content > .welcome-message {
+    width: 80vw;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 1.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transform: translateX(calc(-50vw + 50% + 130px)); /* Lệch phải 20px */
+}
