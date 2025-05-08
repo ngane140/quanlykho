@@ -27,14 +27,14 @@ include("../class/clsdoimk.php");
     <h1>Hệ Thống Quản Lý Kho</h1>
   </header>
   <div class="container">
-    <aside class="sidebar">
+  <aside class="sidebar">
       <ul>
-        <li><a href="">Trang chủ</a></li>
+        <li><a href="index.php">Trang chủ</a></li>
         <li><a href="theodoisp.php">Theo dõi sản phẩm</a></li>
         <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button class="logout">Đăng xuất</button>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <h2>Thay đổi mật khẩu</h2>
