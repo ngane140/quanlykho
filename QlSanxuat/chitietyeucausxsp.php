@@ -58,7 +58,7 @@ else if($laytrangThai == 3) {
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
-            <li>Yêu cầu xuất nguyên liệu</li>
+          <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
@@ -142,7 +142,7 @@ else if($laytrangThai == 3) {
                                                     $coTheSanXuat = false;
                                                     $tenNL = $p->laycot("SELECT tenNguyenLieu FROM nguyenlieu WHERE maNL = '$maNL' LIMIT 1");
                                                     $tenSP = $p->laycot("SELECT tenSanPham FROM sanpham WHERE maSP = '$maSP' LIMIT 1");
-                                                    $thongBao .= "Không đủ nguyên liệu $tenNL cho sản phẩm $tenSP (Cần: $soLuongCan, Tồn: $tongTonKho)\\n";
+                                                    $thongBao .= "Không đủ nguyên liệu '$tenNL' cho sản phẩm $tenSP (Cần: $soLuongCan, Tồn: $tongTonKho)\\n";
                                                     $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 3 
                                                                     WHERE idYeuCauSXSP = '$layid'");
                                                 }

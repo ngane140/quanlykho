@@ -25,13 +25,13 @@ include_once('../class/clsthongtin.php');
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
-            <li>Yêu cầu xuất nguyên liệu</li>
-            <li>Yêu cầu sản xuất</li>
+          <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+          <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
         <li>Theo dõi sản phẩm</li>
         <li>Theo dõi nguyên liệu</li>
-        <li>Thông tin cá nhân</li>
+        <li><a href="thongtin.php"></a>Thông tin cá nhân</li>
       </ul>
       <button class="logout">Đăng xuất</button>
     </aside>

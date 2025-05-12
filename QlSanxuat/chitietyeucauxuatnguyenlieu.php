@@ -76,7 +76,8 @@ else {
            
             <?php
                 $p->chitietxuatnguyenlieu("select * from chitietyeucauxuatnguyenlieu where idYeuCauXuatNL='$layid'");
-            ?>               
+            ?> 
+            <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='guiyeucauxuatnguyenlieu.php'" style="float:right; margin-top:50px; margin-right:50px;">Quay lại</button>              
         </main>
 
         

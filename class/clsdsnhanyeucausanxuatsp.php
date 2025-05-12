@@ -91,6 +91,9 @@ class qlykho{
                 else if($trangThai == 2) {
                     $trangThaiText = "Đã sản xuất";
                 }
+                else {
+                    $trangThaiText = "Chờ nhập nguyên liệu";
+                }
                 
                 
                 echo '<tr onclick="window.location=\'chitietyeucausxsp.php?id='.$idYeuCauSXSP.'\'" style="cursor:pointer;">

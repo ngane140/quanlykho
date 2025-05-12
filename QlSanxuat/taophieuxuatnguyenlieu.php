@@ -97,7 +97,7 @@ include('../class/clsthemyeucauXuatNL.php');
         
         <input type="hidden" id="idNguoiDung" name="idNguoiDung" value="<?php echo $_SESSION['user']['id']; ?>">
 
-            <button type="button" class="btnql" onclick="window.location.href='yeucaunhapNL.php'">Hủy bỏ</button>
+            <button type="button" class="btnql" onclick="window.location.href='guiyeucauxuatnguyenlieu.php'">Hủy bỏ</button>
             <button id="luuPhieu" class="btn" onclick="kiemTraTruocKhiLuu(event)">Lưu phiếu</button>
         </div>
 </form>
