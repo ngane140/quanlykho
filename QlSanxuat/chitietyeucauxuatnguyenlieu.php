@@ -45,26 +45,22 @@ else {
     <h1>Hệ Thống Quản Lý Kho</h1>
 </header>
 <div class="container">
-<aside class="sidebar">
-      <ul>
-      <li><a href="index.php">Trang chủ</a></li>
-        <li><a href="quanlinv.php">Quản lý nhân viên kho</a></li>
-        <li><a href="theodoisp.php">Quản lý sản phẩm</a></li>
-        <li><a href="theodoiNL.php">Quản lý nguyên liệu</a></li>
-        <li class="dropdown">
-            Quản lý yêu cầu
-            <ul class="dropdown-content">
-              <li><a href="yeucauxuatNL.php">Yêu cầu xuất nguyên liệu</a></li>
-              <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
-              <li><a href="yeucauSX.php">Yêu cầu sản xuất sản phẩm</a></li>
-              <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
+        <aside class="sidebar">
+        <ul>
+                <li>Trang chủ</li>
+                <li class="dropdown">
+                Quản lý yêu cầu
+                <ul class="dropdown-content">
+                    <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+                    <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
+                </ul>
+            </li>
+                <li>Theo dõi sản phẩm</li>
+                <li>Theo dõi nguyên liệu</li>
+                <li><a href="thongtin.php"></a>Thông tin cá nhân</li>
             </ul>
-       </li>
-       <li><a href="dsQRSP.php">Tạo mã QR sản phẩm</a></li>
-        <li><a href="thongtin.php">Thông tin cá nhân</a></li>
-      </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
-    </aside>
+            <button class="logout">Đăng xuất</button>
+            </aside>
     
         <main class="content">
             <div class="header-section">

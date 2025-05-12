@@ -12,7 +12,7 @@ if (trim($q) === '') {
 }
 
 // Truy vấn cơ sở dữ liệu để tìm sản phẩm khớp với từ khóa
-$sql = "SELECT * FROM nguyenlieu WHERE maNL LIKE '%$q%' OR tenNguyenLieu LIKE '%$q%' LIMIT 10";
+$sql = "SELECT * FROM nguyenlieu WHERE maNL LIKE '%$q%' OR tenNguyenLieu LIKE '%$q%'GROUP BY maNL LIMIT 10";
 $result = mysqli_query($conn, $sql);
 
 // Mảng để lưu trữ kết quả
