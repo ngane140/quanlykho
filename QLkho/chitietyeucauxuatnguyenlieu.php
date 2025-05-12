@@ -104,7 +104,7 @@ else {
                                             
                                             if($soluongton < $soLuongXuat) {
                                                 $coTheXuat = false;
-                                                $thongBao .= "Sản phẩm $maNL không đủ số lượng tồn kho (Cần: $soLuongXuat, Tồn: $soluongton)\\n ";
+                                                $thongBao .= "Nguyên liệu $maNL không đủ số lượng tồn kho (Cần: $soLuongXuat, Tồn: $soluongton)\\n ";
                                             }
                                         }
                                         
@@ -177,7 +177,8 @@ else {
            
             <?php
                 $p->chitietnguyenlieu("select * from chitietyeucauxuatnguyenlieu where idYeuCauXuatNL='$layid'");
-            ?>               
+            ?>   
+            <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucauxuatNL.php'" style="float:right; margin-top:50px; margin-right:50px;">Quay lại</button>                          
         </main>
 
         

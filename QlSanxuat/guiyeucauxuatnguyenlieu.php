@@ -58,7 +58,7 @@ $p = new qlykho();
            <?php
                 $p->xemdsyeucauxuatnl("select * from yeucauxuatnguyenlieu");
            ?>
-           
+        
     </main>
 
     
