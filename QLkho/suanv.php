@@ -14,7 +14,8 @@ require_once '../check_login.php';
   <link rel="stylesheet" href="../CSS/themnv.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/huy.css">
-
+  <script src="../JS/jquery-3.7.1.min.js"></script>
+  <script src="../JS/thongtin.js" defer></script> 
   <script src="../JS/thongbao.js" defer></script> 
   <style>
      a {
@@ -57,6 +58,7 @@ require_once '../check_login.php';
             <?php endif; ?>
             <h2>Sửa Nhân Viên</h2>
             <form action="suanv.php?id=<?php echo $employee['idNguoiDung']; ?>" method="POST">
+              
             <label for="username">Mã Nhân Viên:</label>
             <input type="text" id="username" name="username" value="<?php echo $employee['username']; ?>" required><br>
 
@@ -65,17 +67,19 @@ require_once '../check_login.php';
 
             <label for="SDT">Số điện thoại:</label>
             <input type="text" id="SDT" name="SDT" value="<?php echo $employee['SDT']; ?>" required><br>
-
+            <span id="errSDT" class="error-msg"></span>
+            
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" value="<?php echo $employee['email']; ?>" required><br>
-
+            <span id="errEmail" class="error-msg"></span>
+            
             <label for="diaChi">Địa chỉ:</label>
             <input type="text" id="diaChi" name="diaChi" value="<?php echo $employee['diaChi']; ?>" required><br>
 
             <label for="ngaysinh">Ngày sinh:</label>
             <input type="date" id="ngaysinh" name="ngaysinh" value="<?php echo $employee['ngaysinh']; ?>" required><br>
             <div class="form-buttons">
-                  <button type="submit">Cập nhật</button>
+                   <button type="submit" name="btnthemnv" id="btnthemnv" class="button">Cập nhật</button>
                   <button type="button" onclick="window.location.href='quanlinv.php';">Hủy bỏ</button>
               </div>
             

@@ -12,8 +12,10 @@ include("../class/clsdoimk.php")
   <link rel="stylesheet" href="../CSS/doimatkhau.css">
   <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/style.css">
+  <script src="../JS/jquery-3.7.1.min.js"></script>
   <script src="../JS/thongbao.js" defer></script> 
   <script src="../JS/reset.js" defer></script> 
+  <script src="../JS/thongtin.js" defer></script> 
 </head>
 <body>
 <header class="header">
@@ -50,13 +52,15 @@ include("../class/clsdoimk.php")
         <div class="input-group">
             <label for="newPassword">Mật khẩu mới</label>
             <input type="password" id="newPassword" name="newPassword" placeholder="Nhập mật khẩu mới" required>
-        </div>
+            <span id="errPW" class="err text-danger"></span>
+          </div>
         <div class="input-group">
             <label for="confirmPassword">Xác nhận mật khẩu</label>
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu mới" required>
-        </div>
+              
+          </div>
         <div class="form-buttons">
-            <button type="submit">Đổi mật khẩu</button>
+        <button type="submit" name="btnsua" id="btnsua" class="button" value="Cập Nhật">Đổi mật khẩu</button>
             <button type="button" onclick="cancelChange()">Hủy bỏ</button>
         </div>
     </main>

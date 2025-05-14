@@ -12,8 +12,11 @@ include("../class/clsdoimk.php");
   <title>Đổi mật khẩu NVBH</title>
   <link rel="stylesheet" href="../CSS/doimatkhau.css">
   <link rel="stylesheet" href="../CSS/style.css">
+  <script src="../JS/jquery-3.7.1.min.js"></script>
   <script src="../JS/thongbao.js" defer></script> 
-  <script src="../JS/reset.js" defer></script> 
+  <script src="../JS/reset.js" defer></script>
+  <script src="../JS/thongtin.js" defer></script> 
+   
 
   <style>
      a {
@@ -46,17 +49,19 @@ include("../class/clsdoimk.php");
         <div class="input-group">
             <label for="oldPassword">Mật khẩu cũ</label>
             <input type="password" id="oldPassword" name="oldPassword" placeholder="Nhập mật khẩu cũ" required>
+            
         </div>
         <div class="input-group">
             <label for="newPassword">Mật khẩu mới</label>
             <input type="password" id="newPassword" name="newPassword" placeholder="Nhập mật khẩu mới" required>
+            <span id="errPW" class="err text-danger"></span>
         </div>
         <div class="input-group">
             <label for="confirmPassword">Xác nhận mật khẩu</label>
             <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Nhập lại mật khẩu mới" required>
         </div>  
         <div class="form-buttons">
-            <button type="submit">Đổi mật khẩu</button>
+            <button type="submit" name="btnsua" id="btnsua" class="button" value="Cập Nhật">Đổi mật khẩu</button>
             <button type="button" onclick="cancelChange()">Hủy bỏ</button>
         </div>
         </form>

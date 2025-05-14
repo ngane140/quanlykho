@@ -14,6 +14,8 @@ require_once '../check_login.php';
   <link rel="stylesheet" href="../CSS/themnv.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/huy.css">
+  <script src="../JS/jquery-3.7.1.min.js"></script>
+  <script src="../JS/thongtin.js" defer></script> 
  
   <style>
      a {
@@ -66,9 +68,11 @@ require_once '../check_login.php';
 
                 <label for="SDT">Số Điện Thoại</label>
                 <input type="text" id="SDT" name="SDT" required>
+                <span id="errSDT" class="error-msg"></span>
 
                 <label for="email">Email</label>
                 <input type="email" id="email" name="email" required>
+                <span id="errEmail" class="error-msg"></span>
 
                 <label for="diaChi">Địa Chỉ</label>
                 <input type="text" id="diaChi" name="diaChi" required>
@@ -76,7 +80,7 @@ require_once '../check_login.php';
                 <label for="ngaysinh">Ngày Sinh</label>
                 <input type="date" id="ngaysinh" name="ngaysinh" required>
                 <div class="form-buttons">
-                  <button type="submit">Thêm Nhân Viên</button>
+                  <button type="submit" name="btnthemnv" id="btnthemnv" class="button">Thêm Nhân Viên</button>
                   <button type="button" onclick="window.location.href='quanlinv.php';">Hủy bỏ</button>
               </div>
                 <!-- <button type="submit">Thêm Nhân Viên</button> -->
