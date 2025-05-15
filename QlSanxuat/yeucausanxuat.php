@@ -46,7 +46,7 @@ $p = new qlykho();
         <li><a href="thongtin.php" style="text-decoration: none; /* Bỏ gạch chân */
   color: white;">Thông tin cá nhân</a></li>
       </ul>
-      <button class="logout">Đăng xuất</button>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <h2>Danh sách yêu cầu sản xuất sản phẩm</h2>

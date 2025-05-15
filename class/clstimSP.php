@@ -12,7 +12,7 @@ if (trim($q) === '') {
 }
 
 // Truy vấn cơ sở dữ liệu để tìm sản phẩm khớp với từ khóa
-$sql = "SELECT * FROM sanpham WHERE maSP LIKE '%$q%' OR tensanPham LIKE '%$q%' LIMIT 10";
+$sql = "SELECT * FROM sanpham WHERE maSP LIKE '%$q%' OR tensanPham LIKE '%$q%' GROUP BY maSP LIMIT 10";
 $result = mysqli_query($conn, $sql);
 
 // Mảng để lưu trữ kết quả

@@ -31,7 +31,7 @@ include_once('../class/clsthongtin.php');
        </li>
         <li><a href="thongtin.php" style="text-decoration: none; color: white;">Thông tin cá nhân</a></li>
       </ul>
-      <button class="logout">Đăng xuất</button>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
       <h1>Thông tin</h1>

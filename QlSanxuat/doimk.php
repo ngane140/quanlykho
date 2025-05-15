@@ -36,7 +36,7 @@ include("../class/clsdoimk.php")
             </ul>
        </li>
       </ul>
-      <button class="logout">Đăng xuất</button>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <h2>Thay đổi mật khẩu</h2>

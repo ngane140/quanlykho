@@ -15,6 +15,7 @@ include("../class/clsthemsp.php");
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/huy.css">
   <script src="../JS/thongbao.js"></script>
+  <script src="../JS/themNLtaoSP.js"></script>
 
  
   <style>
@@ -53,13 +54,17 @@ include("../class/clsthemsp.php");
     </aside>
     <main class="content">
     <div class="form-container">
+       
           <?php if (!empty($errorMessage)): ?>
               <div class="message">
                   <?php echo $errorMessage; ?>
               </div>
           <?php endif; ?>
             <h2>Thêm Sản Phẩm</h2>
+            
             <form action="" method="POST">
+              <div class="table-container">
+            <table class="product-table">
                 <label for="maSP">Mã Sản Phẩm</label>
                 <input type="text" id="maSP" name="maSP" value="<?php echo $newProductCode; ?>" readonly>
               
@@ -77,12 +82,36 @@ include("../class/clsthemsp.php");
 
                 <label for="donViTinh">Đơn Vị Tính</label>
                 <input type="text" id="donViTinh" name="donViTinh" required>
-
+                <!--  -->
+                <h3>Nguyên liệu tạo thành</h3>
+                <div id="nguyenlieu-container">
+                    <div class="nguyenlieu-row">
+                        <select name="nguyenlieu[]" required onchange="capNhatDonViTinh(this)">
+                            <option value="">-- Chọn nguyên liệu --</option>
+                            <?php
+                            $kho = new quanlikho();
+                            $conn = $kho->connect();
+                            $result = $conn->query("SELECT maNL, tenNguyenLieu, donViTinh FROM nguyenlieu GROUP BY maNL");
+                            while ($row = $result->fetch_assoc()) {
+                                echo "<option value='" . $row['maNL'] . "' data-dvt='" . $row['donViTinh'] . "'>" . $row['tenNguyenLieu'] . " (" . $row['maNL'] . ")</option>";
+                            }
+                            ?>
+                        </select>
+                        <input type="number" name="soLuongNL[]" placeholder="Số lượng" required>
+                        <input type="text" name="donViTinhNL[]" placeholder="Đơn vị tính" required readonly>
+                        <button type="button" onclick="removeRow(this)">Xóa Nguyên liệu</button>
+                    </div>
+                </div>
+                <button type="button" onclick="addNguyenLieu()">+ Thêm nguyên liệu</button>
+           </table>
+        </div>
+                <!--  -->
                 <div class="form-buttons">
                     <button type="submit">Xác Nhận</button>
                     <button type="button" onclick="window.location.href='theodoisp.php';">Hủy Bỏ</button>
                 </div>
             </form>
+             
         </div>
     </main>
 </div>

@@ -77,6 +77,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         VALUES ('$maSP', '$tensanPham', '$moTa', '$donGia', '$donViTinh', '$soLuong', '$trangThai','$HSDChoPhep')";
 
                 if ($conn->query($sql) === TRUE) {
+                    $nguyenlieuArr = $_POST['nguyenlieu'];
+                    $soLuongArr = $_POST['soLuongNL'];
+                    $donViTinhArr = $_POST['donViTinhNL'];
+
+                    for ($i = 0; $i < count($nguyenlieuArr); $i++) {
+                        $maNL = $conn->real_escape_string($nguyenlieuArr[$i]);
+                        $soLuong = floatval($soLuongArr[$i]);
+                        $donViTinh = $conn->real_escape_string($donViTinhArr[$i]);
+
+                        $insertNLSP = "INSERT INTO nguyenlieu_sanpham (maSP, maNL, donViTinh, soLuong)
+                                    VALUES ('$maSP', '$maNL', '$donViTinh', '$soLuong')";
+                        $conn->query($insertNLSP);
+                    }
+
                     echo "<script>alert('Thêm sản phẩm thành công!'); window.location.href='theodoisp.php';</script>";
                 } else {
                     $errorMessage = "Lỗi: " . $sql . "<br>" . $conn->error;
