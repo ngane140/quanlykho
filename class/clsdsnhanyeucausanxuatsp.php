@@ -86,13 +86,13 @@ class qlykho{
                 if ($trangThai == 0) {
                     $trangThaiText = "Chờ sản xuất";
                 } else if($trangThai == 1) {
-                    $trangThaiText = "Đang sản xuất";
+                    $trangThaiText = "Chờ nhập nguyên liệu";
                 }
                 else if($trangThai == 2) {
-                    $trangThaiText = "Đã sản xuất";
+                    $trangThaiText = "Đang sản xuất";
                 }
                 else {
-                    $trangThaiText = "Chờ nhập nguyên liệu";
+                    $trangThaiText = "Đã sản xuất";
                 }
                 
                 

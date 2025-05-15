@@ -35,7 +35,7 @@ $p = new qlykho();
 <div class="container">
 <aside class="sidebar">
 <ul>
-        <li>Trang chủ</li>
+        <li> <a href="index.php">Trang chủ</a></li>
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
@@ -43,9 +43,8 @@ $p = new qlykho();
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
-        <li>Theo dõi sản phẩm</li>
-        <li>Theo dõi nguyên liệu</li>
-        <li><a href="thongtin.php"></a>Thông tin cá nhân</li>
+        <li><a href="thongtin.php" style="text-decoration: none; /* Bỏ gạch chân */
+  color: white;">Thông tin cá nhân</a></li>
       </ul>
       <button class="logout">Đăng xuất</button>
     </aside>
@@ -53,7 +52,7 @@ $p = new qlykho();
         <h2>Danh sách yêu cầu sản xuất sản phẩm</h2>
         
            <?php
-           $p->xemdsyeucausanxuatsp("select * from yeucausanxuatsanpham");
+           $p->xemdsyeucausanxuatsp("select * from yeucausanxuatsanpham ORDER BY trangThai ASC, ngayYeuCau DESC");
            
            ?>
            

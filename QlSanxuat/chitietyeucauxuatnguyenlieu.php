@@ -47,7 +47,7 @@ else {
 <div class="container">
         <aside class="sidebar">
         <ul>
-                <li>Trang chủ</li>
+                <li><a href="index.php">Trang chủ</a></li>
                 <li class="dropdown">
                 Quản lý yêu cầu
                 <ul class="dropdown-content">
@@ -55,9 +55,7 @@ else {
                     <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
                 </ul>
             </li>
-                <li>Theo dõi sản phẩm</li>
-                <li>Theo dõi nguyên liệu</li>
-                <li><a href="thongtin.php"></a>Thông tin cá nhân</li>
+                <li><a href="thongtin.php">Thông tin cá nhân</a></li>
             </ul>
             <button class="logout">Đăng xuất</button>
             </aside>
