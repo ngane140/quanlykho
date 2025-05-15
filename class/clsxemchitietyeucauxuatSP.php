@@ -32,7 +32,7 @@ $thongTin = array(
 $stmt->close();
 
 // === Lấy danh sách chi tiết sản phẩm xuất ===
-$sqlChiTiet = "SELECT ctx.maSP,sp.tensanPham, ctx.soLuongXuat,sp.donViTinh,sp.donGia
+$sqlChiTiet = "SELECT DISTINCT ctx.maSP,sp.tensanPham, ctx.soLuongXuat,sp.donViTinh,sp.donGia
                FROM chitietyeucauxuatsanpham ctx
                JOIN sanpham sp ON ctx.maSP = sp.maSP
                WHERE ctx.idYeuCauXuatSP = ?";
