@@ -51,7 +51,7 @@ $p = new qlykho();
         <h2>Danh sách yêu cầu xuất sản phẩm</h2>
         
            <?php
-           $p->xemdsyeucauxuatsp("select * from yeucauxuatsanpham");
+           $p->xemdsyeucauxuatsp("select * from yeucauxuatsanpham ORDER BY trangThai ASC, ngayYeuCau DESC");
            
            ?>
            
