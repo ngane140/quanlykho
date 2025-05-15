@@ -8,7 +8,7 @@ include('../class/clsthemyeucauXuatNL.php');
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Thêm yêu cầu nhập nguyên liệu</title>
+  <title>Thêm yêu cầu xuất nguyên liệu</title>
   <link rel="stylesheet" href="../CSS/cssthongtin.css">
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
@@ -43,7 +43,7 @@ include('../class/clsthemyeucauXuatNL.php');
     <button class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-<h2>Thêm Yêu Cầu Nhập Nguyên Liệu</h2>
+<h2>Thêm Yêu Cầu Xuất Nguyên Liệu</h2>
 
 <form method="post" action="">
 
