@@ -40,7 +40,7 @@ include('../class/clsthemyeucauXuatNL.php');
         </li>
             <li><a href="thongtin.php">Thông tin cá nhân</a></li>
     </ul>
-    <button class="logout">Đăng xuất</button>
+    <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
 <h2>Thêm Yêu Cầu Nhập Nguyên Liệu</h2>

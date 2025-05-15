@@ -45,7 +45,7 @@ $p = new qlykho();
        </li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button class="logout">Đăng xuất</button>
+      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <div class="header-section">
