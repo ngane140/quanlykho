@@ -12,14 +12,14 @@ $laytrangThai= $p->laycot("select trangThai from yeucausanxuatsanpham where idYe
 
 
 if ($laytrangThai == 0) {
-    $laytrangThaiText = "Chờ sản xuấtxuất";
+    $laytrangThaiText = "Chờ sản xuất";
 } else if($laytrangThai == 1) {
-    $laytrangThaiText = "Đang sản xuất";
+    $laytrangThaiText = "Chờ nhập nguyên liệu";
 }else if($laytrangThai == 2) {
-    $laytrangThaiText = "Đã sản xuất";
+    $laytrangThaiText = "Đang sản xuất";
 }
 else if($laytrangThai == 3) {
-    $laytrangThaiText = "Chờ nhập nguyên liệu";
+    $laytrangThaiText = "Đã sản xuất";
 }
 // else if($laytrangThai == 2) {
 //     $laytrangThaiText = "Đã duyệt";
@@ -54,7 +54,7 @@ else if($laytrangThai == 3) {
 <div class="container">
 <aside class="sidebar">
 <ul>
-        <li>Trang chủ</li>
+        <li><a href="index.php">Trang chủ</a></li>
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
@@ -62,9 +62,7 @@ else if($laytrangThai == 3) {
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
-        <li>Theo dõi sản phẩm</li>
-        <li>Theo dõi nguyên liệu</li>
-        <li><a href="thongtin.php"></a>Thông tin cá nhân</li>
+        <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
       <button class="logout">Đăng xuất</button>
     </aside>
@@ -91,12 +89,12 @@ else if($laytrangThai == 3) {
                     <?php if($laytrangThai == 0): ?>
                     <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucausanxuat.php'">Quay lại</button>                    
                     <button class="btn-create" name="nut" value="San Xuat San Pham" type="submit" style="margin-right: 100px;">Sản xuất sản phẩm</button>
-                    <?php elseif($laytrangThai == 1): ?>
+                    <?php elseif($laytrangThai == 2): ?>
                         <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucausanxuat.php'">Quay lại</button>                    
                         <button class="btn-create" name="nut" value="Hoan thanh san xuat" type="submit" style="margin-right: 100px;">Hoàn thành sản xuất</button>
-                    <?php elseif($laytrangThai == 2): ?>
-                        <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucausanxuat.php'">Quay lại</button>
                     <?php elseif($laytrangThai == 3): ?>
+                        <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucausanxuat.php'">Quay lại</button>
+                    <?php elseif($laytrangThai == 1): ?>
                         <button class="btn-cancel" name="nut" value="" type="button" onclick="window.location.href='yeucausanxuat.php'">Quay lại</button> 
                         <button class="btn-create" 
                                 onclick="window.open('taophieuxuatnguyenlieu.php', '_blank')" 
@@ -143,7 +141,7 @@ else if($laytrangThai == 3) {
                                                     $tenNL = $p->laycot("SELECT tenNguyenLieu FROM nguyenlieu WHERE maNL = '$maNL' LIMIT 1");
                                                     $tenSP = $p->laycot("SELECT tenSanPham FROM sanpham WHERE maSP = '$maSP' LIMIT 1");
                                                     $thongBao .= "Không đủ nguyên liệu '$tenNL' cho sản phẩm $tenSP (Cần: $soLuongCan, Tồn: $tongTonKho)\\n";
-                                                    $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 3 
+                                                    $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 1 
                                                                     WHERE idYeuCauSXSP = '$layid'");
                                                 }
                                             }
@@ -187,7 +185,7 @@ else if($laytrangThai == 3) {
                                             }
 
                                             // 6. Cập nhật trạng thái yêu cầu
-                                            $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 1
+                                            $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 2
                                                         WHERE idYeuCauSXSP = '$layid'");
 
                                             echo '<script>
@@ -238,7 +236,7 @@ else if($laytrangThai == 3) {
                                         }
                                             if ($success) {
                                                 // Cập nhật trạng thái yêu cầu nhập
-                                                $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 2 WHERE idYeuCauSXSP = '$layid'");
+                                                $p->themxoasua("UPDATE yeucausanxuatsanpham SET trangThai = 3 WHERE idYeuCauSXSP = '$layid'");
                                                 
                                                 echo '<script> 
                                                         alert("Sản phẩm đã nhập vào kho thành công");

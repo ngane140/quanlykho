@@ -24,18 +24,16 @@ include('../class/clstrangchu.php');
   <div class="container">
     <aside class="sidebar">
       <ul>
-        <li>Trang chủ</li>
-        <li class="dropdown">
-           Quản lý yêu cầu
-          <ul class="dropdown-content">
-            <li>Yêu cầu xuất nguyên liệu</li>
-            <li>Yêu cầu sản xuất</li>
-          </ul>
-       </li>
-        <li>Theo dõi sản phẩm</li>
-        <li>Theo dõi nguyên liệu</li>
-        <li>Thông tin cá nhân</li>
-      </ul>
+                <li>Trang chủ</li>
+                <li class="dropdown">
+                Quản lý yêu cầu
+                <ul class="dropdown-content">
+                    <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+                    <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
+                </ul>
+            </li>
+                <li><a href="thongtin.php" style="text-decoration: none;  color: white;">Thông tin cá nhân</a></li>
+            </ul>
       <button class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
