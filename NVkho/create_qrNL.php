@@ -1,6 +1,6 @@
 <?php
 include('../class/ketnoi.php');
-require_once '../check_login.php';
+require_once '../check_login3.php';
 include("../phpqrcode/qrlib.php"); // Thư viện PHP QR Code
 
 
