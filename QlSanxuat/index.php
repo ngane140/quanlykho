@@ -1,6 +1,6 @@
 <?php
 ini_set('session.cookie_lifetime', 0);
-require_once '../check_login.php';
+require_once '../check_login2.php';
 session_start();
 include('../class/clstrangchu.php');
 
