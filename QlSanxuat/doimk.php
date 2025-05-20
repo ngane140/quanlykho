@@ -28,7 +28,7 @@ include("../class/clsdoimk.php")
                 <li class="dropdown">
                   Quản lý yêu cầu
                   <ul class="dropdown-content">
-                      <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+                      <li><a href="guiyeucauxuatnguyenlieu.php">Đề xuất nhập nguyên liệu</a></li>
                       <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
                   </ul>
                 </li>

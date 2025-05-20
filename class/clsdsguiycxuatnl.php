@@ -86,7 +86,7 @@ class qlykho{
                 
                 echo '<tr onclick="window.location=\'chitietyeucauxuatnguyenlieu.php?id='.$idYeuCauXuatNL.'\'" style="cursor:pointer;">
                         <td>'.$dem.'</td>
-                        <td>YCXNL'.$idYeuCauXuatNL.'</td>
+                        <td>DXNNL'.$idYeuCauXuatNL.'</td>
                         <td>'.$ngayYeuCau.'</td>
                         <td>'.$trangThaiText.'</td>
                       </tr>';

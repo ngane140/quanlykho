@@ -28,7 +28,7 @@ include('../class/clstrangchu.php');
                 <li class="dropdown">
                 Quản lý yêu cầu
                 <ul class="dropdown-content">
-                    <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+                    <li><a href="guiyeucauxuatnguyenlieu.php">Đề xuất nhập nguyên liệu</a></li>
                     <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
                 </ul>
             </li>
@@ -50,7 +50,7 @@ include('../class/clstrangchu.php');
         
         <div class="stat-card">
             <i class="fas fa-box-open" style="color: #e74c3c;"></i>
-            <h3>Yêu cầu xuất nguyên liệu chờ xử lí</h3>
+            <h3>Đề xuất nhập nguyên liệu chờ xử lí</h3>
             <div class="count"><?php echo $yeuxuatnl['total']; ?></div>
         </div>
         </div>

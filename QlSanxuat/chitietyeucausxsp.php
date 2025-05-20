@@ -58,7 +58,7 @@ else if($laytrangThai == 3) {
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
-          <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+          <li><a href="guiyeucauxuatnguyenlieu.php">Đề xuất nhập nguyên liệu</a></li>
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
@@ -99,7 +99,7 @@ else if($laytrangThai == 3) {
                         <button class="btn-create" 
                                 onclick="window.open('taophieuxuatnguyenlieu.php', '_blank')" 
                                 style="background-color: #4CAF50;">
-                            Tạo phiếu xuất nguyên liệu
+                            Tạo phiếu Đề xuất nhập nguyên liệu
                         </button>                   
                         <button class="btn-create" name="nut" value="San Xuat San Pham" type="submit" style="margin-right: 100px;">Sản xuất sản phẩm</button>
                         <?php endif; ?>
@@ -213,7 +213,7 @@ else if($laytrangThai == 3) {
                                                                     JOIN yeucausanxuatsanpham y ON c.idYeuCauSXSP = y.idYeuCauSXSP
                                                                     WHERE c.idYeuCauSXSP = '$layid'");
                                         $success = true;
-                                        
+                                    
                                         foreach ($dssanpham as $nl) {
                                             $maSP = $nl['maSP'];
                                             $soLuongSX = $nl['soLuongSX'];

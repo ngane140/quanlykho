@@ -10,7 +10,7 @@ $p = new qlykho();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yêu cầu xuất nguyên liệu</title>
+  <title>Đề xuất nhập nguyên liệu</title>
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/dropdown.css">
@@ -39,7 +39,7 @@ $p = new qlykho();
         <li class="dropdown">
            Quản lý yêu cầu
           <ul class="dropdown-content">
-            <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+            <li><a href="guiyeucauxuatnguyenlieu.php">Đề xuất nhập nguyên liệu</a></li>
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
@@ -49,7 +49,7 @@ $p = new qlykho();
     </aside>
     <main class="content">
         <div class="header-section">
-        <h2>Danh sách gửi yêu cầu xuất nguyên liệu</h2>
+        <h2>Danh sách Đề xuất nhập nguyên liệu</h2>
         <button class="btn-create" name="nut" value="" type="button" onclick="window.location.href='taophieuxuatnguyenlieu.php'" style="margin-right: 50px;">+ Tạo phiếu</button>
         </div>
        
