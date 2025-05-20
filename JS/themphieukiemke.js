@@ -18,9 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
             const soDong = tbody.querySelectorAll("tr").length;
 
             if (soDong === 0) {
-                alert("Vui lòng thêm ít nhất một nguyên liệu trước khi lưu phiếu kiểm kê.");
+                alert("Vui lòng thêm ít nhất một nguyên liệu ");
                 return;
             }
+             if (!kiemTraSoLuongThucTe()) {
+        return; 
+    }
             document.querySelector("form").submit();
         });
         }
@@ -93,7 +96,17 @@ function chonNguyenLieu(nl) {
     document.getElementById("goiYNguyenLieu").innerHTML = "";
     document.getElementById("timNguyenLieu").value = "";
 }
-
+function kiemTraSoLuongThucTe() {
+    const inputs = document.querySelectorAll('input[name="soLuongThucTe[]"]');
+    for (let input of inputs) {
+        if (input.value === '' || isNaN(input.value) || parseFloat(input.value) < 0) {
+            alert("Vui lòng nhập số lượng thực tế hợp lệ (không để trống và không âm).");
+            input.focus();
+            return false;
+        }
+    }
+    return true;
+}
 
 function capNhatChenhLech(input) {
     const row = input.closest("tr");
