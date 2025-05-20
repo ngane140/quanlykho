@@ -22,7 +22,7 @@ $sql = "SELECT MAX(idYeuCauXuatNL) as maxID FROM yeucauxuatnguyenlieu";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 $nextID = $row['maxID'] + 1;
-$maYC = "YCXNL" . str_pad($nextID, 2, '0', STR_PAD_LEFT);
+$maYC = "DXNNL" . str_pad($nextID, 2, '0', STR_PAD_LEFT);
 $ngayTao = date("Y-m-d H:i:s");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

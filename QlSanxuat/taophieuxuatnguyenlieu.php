@@ -34,7 +34,7 @@ include('../class/clsthemyeucauXuatNL.php');
             <li class="dropdown">
             Quản lý yêu cầu
             <ul class="dropdown-content">
-                <li><a href="guiyeucauxuatnguyenlieu.php">Yêu cầu xuất nguyên liệu</a></li>
+                <li><a href="guiyeucauxuatnguyenlieu.php">Đề xuất nhập nguyên liệu</a></li>
                 <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
             </ul>
         </li>
@@ -43,7 +43,7 @@ include('../class/clsthemyeucauXuatNL.php');
     <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-<h2>Thêm Yêu Cầu Xuất Nguyên Liệu</h2>
+<h2>Thêm Đề xuất nhập Nguyên Liệu</h2>
 
 <form method="post" action="">
 

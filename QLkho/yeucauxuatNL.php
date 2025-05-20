@@ -41,7 +41,7 @@ $p = new qlykho();
         <li class="dropdown">
             Quản lý yêu cầu
             <ul class="dropdown-content">
-              <li><a href="yeucauxuatNL.php">Yêu cầu xuất nguyên liệu</a></li>
+              <li><a href="yeucauxuatNL.php">Đề xuất nhập nguyên liệu</a></li>
               <li><a href="yeucaunhapNL.php">Yêu cầu nhập nguyên liệu</a></li>
               <li><a href="yeucauSX.php">Yêu cầu sản xuất sản phẩm</a></li>
               <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
@@ -53,7 +53,7 @@ $p = new qlykho();
       <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
-        <h2>Danh sách yêu cầu xuất sản phẩm</h2>
+        <h2>Danh sách Đề xuất nhập nguyên liệu</h2>
         
            <?php
            $p->xemdsyeucauxuatnl("select * from yeucauxuatnguyenlieu ORDER BY trangThai ASC, ngayYeuCau DESC");
