@@ -27,6 +27,7 @@ $laysoLuongTon = $p->laycot("select soLuongTon from nguyenlieu where maNL = '$la
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
+  <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -54,7 +55,7 @@ $laysoLuongTon = $p->laycot("select soLuongTon from nguyenlieu where maNL = '$la
         <li><a href="dsQRNL.php">Tạo mã QR nguyên liệu</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
     <h2>Yêu cầu nhập Nguyên Liệu</h2>

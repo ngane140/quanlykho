@@ -53,3 +53,12 @@ button:hover {
     margin-bottom: 15px;
     text-align: center;
 }
+/* Nút hủy */
+.btn-cancel {
+    background-color: #f44336; /* màu đỏ */
+    margin-top: 10px;
+}
+
+.btn-cancel:hover {
+    background-color: #d32f2f; /* đỏ đậm hơn khi hover */
+}

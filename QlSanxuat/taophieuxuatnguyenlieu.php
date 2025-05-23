@@ -16,6 +16,7 @@ include('../class/clsthemyeucauXuatNL.php');
   <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
   <script src="../JS/themyeucauxuatNL.js"></script>
+    <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -40,7 +41,7 @@ include('../class/clsthemyeucauXuatNL.php');
         </li>
             <li><a href="thongtin.php">Thông tin cá nhân</a></li>
     </ul>
-    <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+     <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
 <h2>Thêm Đề xuất nhập Nguyên Liệu</h2>

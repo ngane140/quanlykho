@@ -13,6 +13,7 @@ include_once('../class/clsthongtin.php');
   <link rel="stylesheet" href="../CSS/cssthongtin.css">
   <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/dangxuat.js" defer></script> 
 </head>
 <body>
 <header class="header">
@@ -31,7 +32,7 @@ include_once('../class/clsthongtin.php');
        </li>
         <li><a href="thongtin.php" style="text-decoration: none; color: white;">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
       <h1>Thông tin</h1>

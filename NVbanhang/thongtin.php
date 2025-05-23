@@ -12,6 +12,7 @@ include_once('../class/clsthongtin.php');
   <title>Thông tin NVBH</title>
   <link rel="stylesheet" href="../CSS/cssthongtin.css">
   <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -31,7 +32,7 @@ include_once('../class/clsthongtin.php');
         <li><a href="yeucauxuatSP.php">Yêu cầu xuất sản phẩm</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+      <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
       <h1>Thông tin</h1>
