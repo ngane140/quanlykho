@@ -15,7 +15,7 @@ include("../class/clsdoimk.php");
   <script src="../JS/jquery-3.7.1.min.js"></script>
   <script src="../JS/thongbao.js" defer></script> 
   <script src="../JS/reset.js" defer></scrip
-  <script src="../JS/thongtin.js" defer></script> t> 
+  <script src="../JS/thongtin.js" defer></script> 
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
