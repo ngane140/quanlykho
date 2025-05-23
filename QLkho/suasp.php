@@ -16,6 +16,8 @@ require_once '../check_login.php';
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/huy.css">
   <script src="../JS/thongbao.js" defer></script> 
+    <script src="../JS/dangxuat.js" defer></script> 
+
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -46,7 +48,7 @@ require_once '../check_login.php';
        <li><a href="dsQRSP.php">Tạo mã QR sản phẩm</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <div class="form-container">

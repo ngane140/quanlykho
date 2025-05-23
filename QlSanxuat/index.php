@@ -15,6 +15,7 @@ include('../class/clstrangchu.php');
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/trangchu.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <script src="../JS/dangxuat.js" defer></script> 
 
 </head>
 <body>
@@ -34,7 +35,7 @@ include('../class/clstrangchu.php');
             </li>
                 <li><a href="thongtin.php" style="text-decoration: none;  color: white;">Thông tin cá nhân</a></li>
             </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
     <div class="welcome-message">

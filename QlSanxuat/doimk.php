@@ -16,6 +16,7 @@ include("../class/clsdoimk.php")
   <script src="../JS/thongbao.js" defer></script> 
   <script src="../JS/reset.js" defer></script> 
   <script src="../JS/thongtin.js" defer></script> 
+    <script src="../JS/dangxuat.js" defer></script> 
 </head>
 <body>
 <header class="header">
@@ -36,7 +37,7 @@ include("../class/clsdoimk.php")
             </ul>
        </li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <h2>Thay đổi mật khẩu</h2>

@@ -16,6 +16,7 @@ include("../class/clsdoimk.php")
   <script src="../JS/thongbao.js" defer></script> 
   <script src="../JS/reset.js" defer></script> 
   <script src="../JS/thongtin.js" defer></script> 
+  <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -38,7 +39,7 @@ include("../class/clsdoimk.php")
         <li><a href="dsQRNL.php">Tạo mã QR nguyên liệu</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <h2>Thay đổi mật khẩu</h2>

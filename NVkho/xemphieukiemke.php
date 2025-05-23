@@ -14,6 +14,7 @@ include_once('../class/clschitietphieukiemke.php');
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/btnql.css"> 
   <link rel="stylesheet" href="../CSS/themphieukiemke.css"> 
+  <script src="../JS/dangxuat.js" defer></script> 
 
 
   <style>
@@ -38,7 +39,7 @@ include_once('../class/clschitietphieukiemke.php');
         <li><a href="dsQRNL.php">Tạo mã QR nguyên liệu</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+       <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
   <h2>Phiếu kiểm kê</h2>

@@ -14,6 +14,7 @@ $p = new qlykho();
   <link rel="stylesheet" href="../CSS/style.css">
   <link rel="stylesheet" href="../CSS/danhsach.css">
   <link rel="stylesheet" href="../CSS/dropdown.css">
+  <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
       text-decoration: none; /* Xóa gạch chân */
@@ -43,10 +44,9 @@ $p = new qlykho();
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
-        <li><a href="thongtin.php" style="text-decoration: none; /* Bỏ gạch chân */
-  color: white;">Thông tin cá nhân</a></li>
+        <li><a href="thongtin.php" style="text-decoration: none; color: white;">Thông tin cá nhân</a></li>
       </ul>
-      <button onclick="window.location.href='../logout.php'" class="logout">Đăng xuất</button>
+      <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
     </aside>
     <main class="content">
         <h2>Danh sách yêu cầu sản xuất sản phẩm</h2>
