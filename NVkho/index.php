@@ -43,7 +43,7 @@ include('../class/clstrangchu.php');
     </aside>
     <main class="content">
     <div class="welcome-message">
-    <h2>Xin chào quản lý kho!</h2>
+    <h2>Xin chào nhân viên kho!</h2>
       <p>Chào mừng bạn trở lại hệ thống quản lý kho</p>
     </div>
     <div class="stats-grid">
