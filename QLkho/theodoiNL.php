@@ -89,7 +89,13 @@ require_once '../check_login.php';
                         echo "<td>" . $product['maNL'] . "</td>"; 
                         echo "<td>" . $product['tenNguyenLieu'] . "</td>"; 
                         echo "<td>" . $product['donViTinh'] . "</td>"; 
-                        echo "<td>" . $product['tongSoLuongTon'] . "</td>"; 
+                        $value = $product['tongSoLuongTon'];
+                            if (fmod($value, 1) == 0) {
+                                echo "<td>" . (int)$value . "</td>";
+                            } else {
+                                echo "<td>" . rtrim(rtrim(number_format($value, 4), '0'), '.') . "</td>";
+                            }
+
                         echo "<td>
 
                     <a href='../class/clsxoanl.php?maNL=" . $product['maNL'] . "' class='btn-delete' onclick=\"return confirm('Bạn có chắc chắn muốn xóa nguyên liệu này không?');\">Xóa</a>
