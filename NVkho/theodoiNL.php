@@ -70,7 +70,12 @@ require_once '../check_login3.php';
                         echo "<td>" . $product['maNL'] . "</td>"; 
                         echo "<td>" . $product['tenNguyenLieu'] . "</td>"; 
                         echo "<td>" . $product['donViTinh'] . "</td>"; 
-                        echo "<td>" . $product['tongSoLuongTon'] . "</td>"; 
+                         $value = $product['tongSoLuongTon'];
+                            if (fmod($value, 1) == 0) {
+                                echo "<td>" . (int)$value . "</td>";
+                            } else {
+                                echo "<td>" . rtrim(rtrim(number_format($value, 4), '0'), '.') . "</td>";
+                            }
                         echo "</tr>";
                     }
                 } else {
