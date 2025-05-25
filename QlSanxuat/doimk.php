@@ -33,6 +33,7 @@ include("../class/clsdoimk.php")
                       <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
                   </ul>
                 </li>
+                <li><a href="theodoiNL.php">Theo dõi nguyên liệu</a></li>
                 <li><a href="thongtin.php" style="text-decoration: none;  color: white;">Thông tin cá nhân</a></li>
             </ul>
        </li>

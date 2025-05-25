@@ -44,6 +44,7 @@ $p = new qlykho();
             <li><a href="yeucausanxuat.php">Yêu cầu sản xuất sản phẩm</a></li>
           </ul>
        </li>
+       <li><a href="theodoiNL.php">Theo dõi nguyên liệu</a></li>
         <li><a href="thongtin.php">Thông tin cá nhân</a></li>
       </ul>
        <button onclick="confirmLogout()" class="logout">Đăng xuất</button>
