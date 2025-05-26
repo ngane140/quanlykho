@@ -76,13 +76,13 @@ else {
                     <button class="btn-cancel" name="nut" value="Tu choi phieu" type="submit">Từ chối phiếu</button>
                     <button class="btn-create" name="nut" value="Xac nhan xuat" type="submit" style="margin-right: 100px;">Xác nhận Xuất</button>
                     <?php elseif($laytrangThai == 1): ?>
-                        <button class="btn-cancel" name="nut" value="Tu choi phieu" type="submit">Từ chối phiếu</button>
+                        <!-- <button class="btn-cancel" name="nut" value="Tu choi phieu" type="submit">Từ chối phiếu</button> -->
                         <button class="btn-create" 
                                 onclick="window.open('themyeucaunhapNL.php', '_blank')" 
-                                style="background-color: #4CAF50; margin-right: 0px;">
+                                style="background-color: #4CAF50; margin-right: 0px;" >
                             Nhập nguyên liệu
                         </button>
-                        <button class="btn-create" name="nut" value="Xac nhan xuat" type="submit" style="margin-right: 0px; ">Xác nhận Xuất</button>
+                        <button class="btn-create" name="nut" value="Xac nhan" type="submit" style="margin-right: 0px; ">Xác nhận</button>
                     <?php elseif($laytrangThai == 3): ?>
                         
                     <?php endif; ?>
@@ -91,68 +91,76 @@ else {
                                 switch ($_POST['nut']) {
                                     case 'Xac nhan xuat': {
                                         // Lấy tất cả sản phẩm trong yêu cầu xuất
-                                        $dsnguyenlieu = $p->laydanhsach("SELECT maNL, soLuongXuat FROM chitietyeucauxuatnguyenlieu WHERE idYeuCauXuatNL = '$layid'");
+                                        // $dsnguyenlieu = $p->laydanhsach("SELECT maNL, soLuongXuat FROM chitietyeucauxuatnguyenlieu WHERE idYeuCauXuatNL = '$layid'");
                                         
-                                        $coTheXuat = true;
-                                        $thongBao = "";
+                                        // $coTheXuat = true;
+                                        // $thongBao = "";
                                         
-                                        // Kiểm tra tồn kho cho từng sản phẩm
-                                        foreach ($dsnguyenlieu as $NL) {
-                                            $maNL = $NL['maNL'];
-                                            $soLuongXuat = $NL['soLuongXuat'];
+                                        // // Kiểm tra tồn kho cho từng sản phẩm
+                                        // foreach ($dsnguyenlieu as $NL) {
+                                        //     $maNL = $NL['maNL'];
+                                        //     $soLuongXuat = $NL['soLuongXuat'];
                                             
-                                            $soluongton = $p->laycot("SELECT SUM(soLuongTon) FROM nguyenlieu WHERE maNL = '$maNL' AND trangThai = 1");
+                                        //     $soluongton = $p->laycot("SELECT SUM(soLuongTon) FROM nguyenlieu WHERE maNL = '$maNL' AND trangThai = 1");
                                             
-                                            if($soluongton < $soLuongXuat) {
-                                                $coTheXuat = false;
-                                                $thongBao .= "Nguyên liệu $maNL không đủ số lượng tồn kho (Cần: $soLuongXuat, Tồn: $soluongton)\\n ";
-                                            }
-                                        }
+                                        //     if($soluongton < $soLuongXuat) {
+                                        //         $coTheXuat = false;
+                                        //         $thongBao .= "Nguyên liệu $maNL không đủ số lượng tồn kho (Cần: $soLuongXuat, Tồn: $soluongton)\\n ";
+                                        //     }
+                                        // }
                                         
-                                        if(!$coTheXuat) {
+                                        // if(!$coTheXuat) {
                                             echo '<script>
-                                                    alert("'.$thongBao.' Hãy thêm yêu cầu Nhập nguyên liệu");
+                                                    alert("Đã chấp nhận phiếu. Vui lòng tạo phiếu Nhập nguyên liệu!");
                                                     window.location.href = "chitietyeucauxuatnguyenlieu.php?id='.$layid.'";
                                                   </script>';
                                             $p->themxoasua("UPDATE yeucauxuatnguyenlieu SET trangThai = 1 WHERE idYeuCauXuatNL = '$layid'");
-                                        }
-                                        else {
-                                            // Xử lý xuất kho từng sản phẩm
-                                            foreach ($dsnguyenlieu as $NL) {
-                                                $maNL = $NL['maNL'];
-                                                $soLuongXuat = $NL['soLuongXuat'];
-                                                $soLuongConLai = $soLuongXuat;
+                                        // }
+                                        // else {
+                                        //     // Xử lý xuất kho từng sản phẩm
+                                        //     foreach ($dsnguyenlieu as $NL) {
+                                        //         $maNL = $NL['maNL'];
+                                        //         $soLuongXuat = $NL['soLuongXuat'];
+                                        //         $soLuongConLai = $soLuongXuat;
                                                 
-                                                // Xuất theo FIFO
-                                                while($soLuongConLai > 0) {
-                                                    // Lấy lô hàng cũ nhất
-                                                    $loHang = $p->laydanhsach("SELECT idnguyenlieu, soLuongTon FROM nguyenlieu 
-                                                                             WHERE maNL = '$maNL' AND soLuongTon > 0 
-                                                                             ORDER BY ngayNhap ASC LIMIT 1");
+                                        //         // Xuất theo FIFO
+                                        //         while($soLuongConLai > 0) {
+                                        //             // Lấy lô hàng cũ nhất
+                                        //             $loHang = $p->laydanhsach("SELECT idnguyenlieu, soLuongTon FROM nguyenlieu 
+                                        //                                      WHERE maNL = '$maNL' AND soLuongTon > 0 
+                                        //                                      ORDER BY ngayNhap ASC LIMIT 1");
                                                     
-                                                    if(empty($loHang)) break;
+                                        //             if(empty($loHang)) break;
                                                     
-                                                    $idnguyenlieu = $loHang[0]['idnguyenlieu'];
-                                                    $soLuongLo = $loHang[0]['soLuongTon'];
+                                        //             $idnguyenlieu = $loHang[0]['idnguyenlieu'];
+                                        //             $soLuongLo = $loHang[0]['soLuongTon'];
                                                     
-                                                    $soLuongXuatLo = min($soLuongLo, $soLuongConLai);
+                                        //             $soLuongXuatLo = min($soLuongLo, $soLuongConLai);
                                                     
-                                                    // Thực hiện xuất kho
-                                                    $p->themxoasua("UPDATE nguyenlieu SET soLuongTon = soLuongTon - $soLuongXuatLo 
-                                                                  WHERE idnguyenlieu = '$idnguyenlieu'");
+                                        //             // Thực hiện xuất kho
+                                        //             $p->themxoasua("UPDATE nguyenlieu SET soLuongTon = soLuongTon - $soLuongXuatLo 
+                                        //                           WHERE idnguyenlieu = '$idnguyenlieu'");
                                                     
-                                                    $soLuongConLai -= $soLuongXuatLo;
-                                                }
-                                            }
+                                        //             $soLuongConLai -= $soLuongXuatLo;
+                                        //         }
+                                        //     }
                                             
-                                            echo '<script>
-                                                    alert("Xuất kho thành công");
+                                        //     echo '<script>
+                                        //             alert("Xuất kho thành công");
+                                        //             window.location.href = "chitietyeucauxuatnguyenlieu.php?id='.$layid.'";
+                                        //           </script>';
+                                        //     $p->themxoasua("UPDATE yeucauxuatnguyenlieu SET trangThai = 2 WHERE idYeuCauXuatNL = '$layid'");
+                                        // }
+                                        break;
+                                    }
+                                    case 'Xac nhan': {
+                                        echo '<script>
+                                                    alert("Đã duyệt phiếu!");
                                                     window.location.href = "chitietyeucauxuatnguyenlieu.php?id='.$layid.'";
                                                   </script>';
                                             $p->themxoasua("UPDATE yeucauxuatnguyenlieu SET trangThai = 2 WHERE idYeuCauXuatNL = '$layid'");
+                                            break;
                                         }
-                                        break;
-                                    }
                             
                                     case 'Tu choi phieu': {
                                         if ($p->themxoasua("UPDATE yeucauxuatnguyenlieu SET trangThai = 3 WHERE idYeuCauXuatNL = '$layid'") == 1) {
