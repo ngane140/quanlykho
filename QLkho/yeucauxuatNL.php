@@ -58,7 +58,7 @@ $p = new docapi();
         <h2>Danh sách Đề xuất nhập nguyên liệu</h2>
         
            <?php
-           $p->xuatds("http://localhost/test/quanlykho/api/api_yeucauxuatNL.php");
+           $p->xuatds("http://localhost/kho/quanlykho/api/api_yeucauxuatNL.php");
            
            ?>
            
