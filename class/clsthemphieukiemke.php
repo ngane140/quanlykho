@@ -5,20 +5,13 @@ include('ketnoi.php');
 $kho = new quanlikho();
 $conn = $kho->connect();
 
-// // Bắt buộc phải có idNguoiDung
-// $idNguoiDung = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 
-// // Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
-// if ($idNguoiDung <= 0) {
-//     echo "Không có id người dùng!";
-//     exit(); // Dừng chương trình
-// }
-$idNguoiDung = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
+$idNguoiDung = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; 
 
 // Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($idNguoiDung)) {
     echo "Không có id người dùng!";
-    exit(); // Dừng thực thi chương trình
+    exit(); 
 }
 
 

@@ -1,9 +1,9 @@
 <?php
 session_start();
-include_once('ketnoi.php'); // Đảm bảo bạn đã kết nối với cơ sở dữ liệu
-$kho = new quanlikho(); // Lớp kết nối của bạn
-// Lấy giá trị của tham số 'id' từ URL
-$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
+include_once('ketnoi.php'); 
+$kho = new quanlikho(); 
+
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; 
 
 // Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
@@ -21,16 +21,16 @@ if ($conn) {
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-        $employees = array(); // Khởi tạo mảng rỗng
+        $employees = array(); 
         while ($row = $result->fetch_assoc()) {
-            $employees[] = $row;  // Thêm từng dòng dữ liệu vào mảng
+            $employees[] = $row;  
         }
     } else {
-        $employees = array(); // Nếu không có dữ liệu, tạo mảng trống
+        $employees = array(); 
     }
 } else {
     echo "Không thể kết nối cơ sở dữ liệu!";
-    exit(); // Dừng thực thi nếu không thể kết nối
+    exit(); 
 }
 
 ?>

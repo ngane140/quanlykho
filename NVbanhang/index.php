@@ -18,8 +18,8 @@ include('../class/clstrangchu.php');
 
   <style>
      a {
-      text-decoration: none; /* Xóa gạch chân */
-      color: inherit; /* Giữ nguyên màu chữ */
+      text-decoration: none; 
+      color: inherit; 
     }
   </style>
 </head>

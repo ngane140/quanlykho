@@ -1,23 +1,22 @@
 <?php
-include_once('ketnoi.php'); // Kết nối CSDL
+include_once('ketnoi.php'); 
 
-$kho = new quanlikho(); // Lớp kết nối
+$kho = new quanlikho();
 
-// Lấy giá trị 'id' từ URL
+
 session_start();
-$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; 
 
 // Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
-    exit(); // Dừng thực thi chương trình
+    exit(); 
 }
 
 // Lấy giá trị filter từ URL nếu có
 $filter = isset($_GET['filter']) ? $_GET['filter'] : '';
 
-// Xây dựng câu truy vấn SQL theo điều kiện lọc
-//$sql = "SELECT * FROM nguyenlieu";
+
 $sql="SELECT 
     maNL, 
     MIN(tenNguyenLieu) AS tenNguyenLieu, 

@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $productInfo .= "Mô tả: " . (!empty($moTa) ? $moTa : 'Không có mô tả');
 
     // Mã hóa thông tin sản phẩm
-   // $qrContent = urlencode($productInfo); // Mã hóa thông tin sản phẩm
+   
     $filename = 'qrcodesNL/' . $idNguyenLieu . '.png'; // Đường dẫn lưu file QR
    
     // Tạo mã QR và lưu vào thư mục qrcodes

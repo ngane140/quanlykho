@@ -16,8 +16,8 @@ require_once '../check_login4.php';
     <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
-      text-decoration: none; /* Xóa gạch chân */
-      color: inherit; /* Giữ nguyên màu chữ */
+      text-decoration: none; 
+      color: inherit; 
     }
   </style>
 </head>

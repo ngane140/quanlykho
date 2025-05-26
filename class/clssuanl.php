@@ -1,12 +1,12 @@
 <?php
-include('ketnoi.php'); // Kết nối cơ sở dữ liệu
+include('ketnoi.php');
 
 // Lấy mã nguyên liệu từ URL
 $maNL = isset($_GET['maNL']) ? $_GET['maNL'] : '';
 $kho = new quanlikho(); 
 $conn = $kho->connect();
 
-// Biến chứa thông báo lỗi
+
 $errorMessage = "";
 
 // Lấy thông tin nguyên liệu nếu mã hợp lệ

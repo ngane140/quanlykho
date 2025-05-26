@@ -1,5 +1,5 @@
 <?php
-include_once('ketnoi.php'); // Kết nối cơ sở dữ liệu
+include_once('ketnoi.php'); 
 
 // Kiểm tra kết nối và ID nhân viên
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;

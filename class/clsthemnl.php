@@ -1,12 +1,12 @@
 <?php
 session_start();
 include("ketnoi.php");
-$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
+$id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; 
 
 // Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
 if (empty($id)) {
     echo "Không có id người dùng!";
-    exit(); // Dừng thực thi chương trình
+    exit(); 
 }
 
 // Hàm lấy mã sản phẩm mới
