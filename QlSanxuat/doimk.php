@@ -16,7 +16,13 @@ include("../class/clsdoimk.php")
   <script src="../JS/thongbao.js" defer></script> 
   <script src="../JS/reset.js" defer></script> 
   <script src="../JS/thongtin.js" defer></script> 
-    <script src="../JS/dangxuat.js" defer></script> 
+    <script src="../JS/dangxuat.js" defer></script>
+     <style>
+     a {
+      text-decoration: none; /* Xóa gạch chân */
+      color: inherit; /* Giữ nguyên màu chữ */
+    }
+  </style> 
 </head>
 <body>
 <header class="header">
