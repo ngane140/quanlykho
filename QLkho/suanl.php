@@ -74,7 +74,7 @@ require_once '../check_login.php';
                 <input type="number" id="donGia" name="donGia" value="<?php echo number_format($product['donGia'], 0, '', ''); ?>" required min="1000" step="100" />
            
                 <label for="donViTinh">Đơn vị tính:</label>
-                <input type="text" id="donViTinh" name="donViTinh" value="<?php echo $product['donViTinh']; ?>" required />
+                <input type="text" id="donViTinh" name="donViTinh" value="<?php echo $product['donViTinh']; ?>"  readonly  />
             <div class="form-buttons">
                 <button type="submit">Cập nhật</button>
                 <button type="button" onclick="window.location.href='theodoiNL.php';">Hủy bỏ</button>
