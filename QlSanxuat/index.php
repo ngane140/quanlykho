@@ -16,7 +16,12 @@ include('../class/clstrangchu.php');
   <link rel="stylesheet" href="../CSS/trangchu.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
     <script src="../JS/dangxuat.js" defer></script> 
-
+ <style>
+     a {
+      text-decoration: none; /* Xóa gạch chân */
+      color: inherit; /* Giữ nguyên màu chữ */
+    }
+  </style>
 </head>
 <body>
 <header class="header">
