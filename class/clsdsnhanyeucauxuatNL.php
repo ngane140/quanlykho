@@ -59,24 +59,7 @@ class qlykho{
 		}
 	}
 
-    public function xemdsyeucauxuatnl($sql){
-        $link=$this->connect();
-        $ketqua = mysql_query($sql, $link);
-        $i=mysql_num_rows($ketqua);
-        if($i>0)
-        {
-            $dulieu=array();
-            while($row=mysql_fetch_array($ketqua))
-            {
-                $idYeuCauXuatNL=$row['idYeuCauXuatNL'];  
-                $ngayYeuCau=$row['ngayYeuCau'];
-                $trangThai=$row['trangThai'];
-            $dulieu[]=array('idYeuCauXuatNL'=>$idYeuCauXuatNL,'ngayYeuCau'=>$ngayYeuCau,'trangThai'=>$trangThai);
-            }
-            header("content-Type:application/json;charset=UTF-8");
-            echo json_encode($dulieu); 
-        }
-    }
+    
     public function xuatds($sql){
         $link=$this->connect();
         $ketqua=mysql_query($sql,$link);

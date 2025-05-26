@@ -1,8 +1,8 @@
 <?php
 ini_set('session.cookie_lifetime', 0);
 require_once '../check_login.php';
-include("../class/clsdsnhanyeucauxuatSP.php");
-$p = new qlykho();
+include("../docapi/clsnhanycxsp.php");
+$p = new docapi();
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +53,7 @@ $p = new qlykho();
         <h2>Danh sách yêu cầu xuất sản phẩm</h2>
         
            <?php
-           $p->xemdsyeucauxuatsp("select * from yeucauxuatsanpham ORDER BY trangThai ASC, ngayYeuCau DESC");
+           $p->xemdsyeucauxuatsp("http://localhost/kho/quanlykho/api/api_yeucauxuatSP.php");
            
            ?>
            

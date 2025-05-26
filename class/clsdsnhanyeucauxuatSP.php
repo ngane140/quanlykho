@@ -59,24 +59,13 @@ class qlykho{
 		}
 	}
 
-    public function xemdsyeucauxuatsp($sql){
+     public function xuatds($sql){
         $link=$this->connect();
         $ketqua = mysql_query($sql, $link);
         $i=mysql_num_rows($ketqua);
         if($i>0)
         {
-            echo '<table class="product-table">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã yêu cầu</th>
-                    <th>Tên khách hàng</th>
-                    <th>Ngày yêu cầu</th>
-                    <th>Trạng thái</th>
-                </tr>
-            </thead>
-            <tbody>';
-            $dem=1;
+            $dulieu=array();
             while($row=mysql_fetch_array($ketqua))
             {
                 $idYeuCauXuatSP=$row['idYeuCauXuatSP'];    
@@ -96,28 +85,16 @@ class qlykho{
                 else {
                     $trangThaiText = "Từ chối";
                 }
-                
-                echo '<tr onclick="window.location=\'chitietyeucauxuatsanpham.php?id='.$idYeuCauXuatSP.'\'" style="cursor:pointer;">
-                        <td>'.$dem.'</td>
-                        <td>YCXSP'.$idYeuCauXuatSP.'</td>
-                        <td>'.$tenKhachHang.'</td>
-                        <td>'.$ngayYeuCau.'</td>
-                        <td>'.$trangThaiText.'</td>
-                      </tr>';
-    
-                $dem++;
+                $dulieu[]=array('idYeuCauXuatSP'=>$idYeuCauXuatSP,'tenKhachHang'=>$tenKhachHang,'ngayYeuCau'=>$ngayYeuCau,'trangThai'=>$trangThaiText);
                 
             }
-            echo '</tbody>
-                </table>';
+                header("content-Type:application/json;charset=UTF-8");
+                echo json_encode($dulieu);
             
-        }
-        else
-        {
-            echo 'Không có dữ liệu';
         }
     
     }
+    
 
     public function chitietsanpham($sql){
         $link=$this->connect();
