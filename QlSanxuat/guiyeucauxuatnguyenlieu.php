@@ -1,8 +1,8 @@
 <?php
 ini_set('session.cookie_lifetime', 0);
 require_once '../check_login2.php';
-include("../class/clsdsguiycxuatnl.php");
-$p = new qlykho();
+include("../docapi/clsguiycxnl.php");
+$p = new docapi();
 ?>
 
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ $p = new qlykho();
         </div>
        
            <?php
-                $p->xemdsyeucauxuatnl("select * from yeucauxuatnguyenlieu ORDER BY trangThai ASC, ngayYeuCau DESC");
+                $p->xemdsyeucauxuatnl("http://localhost/kho/quanlykho/api/api_guiyeucauxuatNL.php");
            ?>
         
     </main>

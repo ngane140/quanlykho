@@ -47,30 +47,16 @@ class qlykho{
 		}
 	}
 
-    public function xemdsyeucauxuatnl($sql){
+    public function xuatds($sql){
         $link=$this->connect();
-        $ketqua = mysql_query($sql, $link);
+        $ketqua=mysql_query($sql,$link);
         $i=mysql_num_rows($ketqua);
-        if($i>0)
-        {
-            echo '<div class="scrollable-table">
-            <table class="product-table">
-            <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Mã yêu cầu</th>
-                    <th>Ngày yêu cầu</th>
-                    <th>Trạng thái</th>
-                </tr>
-            </thead>
-            <tbody>';
-            $dem=1;
-            while($row=mysql_fetch_array($ketqua))
-            {
-                $idYeuCauXuatNL=$row['idYeuCauXuatNL'];  
+        if($i>0){
+            $dulieu=array();
+            while($row=mysql_fetch_array($ketqua)){
+                $idYeuCauXuatNL=$row['idYeuCauXuatNL'];
                 $ngayYeuCau=$row['ngayYeuCau'];
                 $trangThai=$row['trangThai'];
-            
                 if ($trangThai == 0) {
                     $trangThaiText = "Chờ xử lý";
                 } else if($trangThai == 1) {
@@ -82,29 +68,13 @@ class qlykho{
                 else {
                     $trangThaiText = "Từ chối";
                 }
-                
-                
-                echo '<tr onclick="window.location=\'chitietyeucauxuatnguyenlieu.php?id='.$idYeuCauXuatNL.'\'" style="cursor:pointer;">
-                        <td>'.$dem.'</td>
-                        <td>DXNNL'.$idYeuCauXuatNL.'</td>
-                        <td>'.$ngayYeuCau.'</td>
-                        <td>'.$trangThaiText.'</td>
-                      </tr>';
-    
-                $dem++;
-                
+                $dulieu[]=array('idYeuCauXuatNL'=>$idYeuCauXuatNL,'ngayYeuCau'=>$ngayYeuCau,'trangThai'=>$trangThaiText);
             }
-            echo '</tbody>
-                </table>
-                </div>';
-            
+            header("content-Type:application/json;charset=UTF-8");
+            echo json_encode($dulieu);
         }
-        else
-        {
-            echo 'Không có dữ liệu';
-        }
-    
     }
+
     public function chitietxuatnguyenlieu($sql){
         $link=$this->connect();
 		$ketqua = mysql_query($sql,$link);

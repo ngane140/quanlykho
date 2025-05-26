@@ -7,8 +7,8 @@ class docapi{
 		$results=json_decode($response);
 		return $results;
 	}
-    public function xuatds($url){
-        $results=$this->docjson($url);
+    public function xemdsyeucauxuatnl($url){
+       $results=$this->docjson($url);
             echo '<div class="scrollable-table">
             <table class="product-table">
             <thead>
@@ -22,7 +22,8 @@ class docapi{
             <tbody>';
             $dem=1;
             foreach($results as $data){
-            
+                
+                
                 echo '<tr onclick="window.location=\'chitietyeucauxuatnguyenlieu.php?id='.$data->idYeuCauXuatNL.'\'" style="cursor:pointer;">
                         <td>'.$dem.'</td>
                         <td>DXNNL'.$data->idYeuCauXuatNL.'</td>
@@ -37,7 +38,34 @@ class docapi{
                 </table>
                 </div>';
             
+        
     }
     
-    
-}?>
+    public function chitietxuatnguyenlieu($url){
+        $results=$this->docjson($url);
+            echo ' <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Mã nguyên liệu</th>
+                        <th>Tên nguyên liệu</th>
+                        <th>Số lượng xuất</th>
+                    </tr>
+                </thead>
+                <tbody>';
+			$dem=1;
+            foreach($results as $data){
+                echo '<tr>
+                        <td>'.$dem.'</td>
+                        <td >'.$data->maNL.'</td>
+                        <td >'.$data->tennguyenlieu.'</td>
+                        <td>'.$data->soLuongXuat.'</td>
+                    </tr>';
+				$dem++;
+
+			}   
+            echo '</tbody>
+            </table>';
+		}
+}
+?>
