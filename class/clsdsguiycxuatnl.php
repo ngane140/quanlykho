@@ -74,10 +74,10 @@ class qlykho{
                 if ($trangThai == 0) {
                     $trangThaiText = "Chờ xử lý";
                 } else if($trangThai == 1) {
-                    $trangThaiText = "Chờ xuất nguyên liệu";
+                    $trangThaiText = "Chờ nhập nguyên liệu";
                 }
                 else if($trangThai == 2) {
-                    $trangThaiText = "Đã duyệt";
+                    $trangThaiText = "Đã nhập";
                 }
                 else {
                     $trangThaiText = "Từ chối";

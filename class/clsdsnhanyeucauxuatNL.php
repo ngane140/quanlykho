@@ -93,7 +93,7 @@ class qlykho{
                     $trangThaiText = "Chờ nhập nguyên liệu";
                 }
                 else if($trangThai == 2) {
-                    $trangThaiText = "Đã duyệt";
+                    $trangThaiText = "Đã nhập";
                 }
                 else {
                     $trangThaiText = "Từ chối";
