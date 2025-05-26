@@ -1,8 +1,8 @@
 <?php
 ini_set('session.cookie_lifetime', 0);
 require_once '../check_login.php';
-include("../class/clsdsnhanyeucauxuatNL.php");
-$p = new qlykho();
+include("../docapi/clsnhanycxnl.php");
+$p = new docapi();
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +58,7 @@ $p = new qlykho();
         <h2>Danh sách Đề xuất nhập nguyên liệu</h2>
         
            <?php
-           $p->xemdsyeucauxuatnl("select * from yeucauxuatnguyenlieu ORDER BY trangThai ASC, ngayYeuCau DESC");
+           $p->xuatds("http://localhost/test/quanlykho/api/api_yeucauxuatNL.php");
            
            ?>
            
