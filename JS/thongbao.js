@@ -1,4 +1,4 @@
- // Kiểm tra xem có thông báo nào từ PHP không
+
  var message = "<?php echo $message; ?>";
 
  // Nếu có thông báo, hiển thị và tự động ẩn sau 3 giây

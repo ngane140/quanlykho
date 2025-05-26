@@ -10,12 +10,12 @@
 include("ketnoi.php");
 
 
-$id = isset($_GET['maNL']) ? $_GET['maNL'] : ''; // Lưu maNL như một chuỗi
+$id = isset($_GET['maNL']) ? $_GET['maNL'] : ''; 
 
-// Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
+
 if (empty($id)) {
     echo "Không có id người dùng!";
-    exit(); // Dừng thực thi chương trình
+    exit(); 
 }
 $kho = new quanlikho();
 $conn = $kho->connect();

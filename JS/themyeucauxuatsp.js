@@ -143,8 +143,8 @@ function kiemTraTruocKhiLuu(event) {
         const soLuong = cells[2].querySelector('input').value.trim();
         products.push({ maSP, soLuong });
     }
-    const idNguoiDung = document.getElementById("idNguoiDung").value.trim(); // Ví dụ lấy từ một input ẩn
-    console.log("ID Người Dùng: " + idNguoiDung); // In ra ID người dùng
+    const idNguoiDung = document.getElementById("idNguoiDung").value.trim(); 
+    console.log("ID Người Dùng: " + idNguoiDung); // In ID người dùng
 
     // Gửi dữ liệu qua AJAX
     if (idNguoiDung === "") {
@@ -161,7 +161,7 @@ function kiemTraTruocKhiLuu(event) {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", "../class/clsthemyeucauxuatSP.php", true);
     xhr.onload = function() {
-        console.log(xhr.responseText); // Log phản hồi để kiểm tra chi tiết lỗi
+        console.log(xhr.responseText); 
         if (xhr.status === 200) {
             if (xhr.responseText.trim() === 'success') {
                 alert("Yêu cầu xuất sản phẩm đã được lưu!");

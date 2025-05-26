@@ -5,7 +5,7 @@ $kho = new quanlikho();
 $conn = $kho->connect();
 $id = isset($_SESSION['user']['id']) ? $_SESSION['user']['id'] : ''; // Kiểm tra xem session có lưu idNguoiDung không
 
-// Kiểm tra nếu không có idNguoiDung, chuyển hướng hoặc thông báo lỗi
+
 if (empty($id)) {
     echo "Không có id người dùng!";
     exit(); // Dừng thực thi chương trình

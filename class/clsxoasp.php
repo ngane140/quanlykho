@@ -11,7 +11,7 @@ include("ketnoi.php");
 
 
 $id = isset($_GET['maSP']) ?($_GET['maSP']) : '';
-// Kiểm tra nếu không có id, chuyển hướng hoặc thông báo lỗi
+
 if (empty($id)) {
     echo "Không có id người dùng!";
     exit(); // Dừng thực thi chương trình

@@ -82,7 +82,9 @@ else {
                                 style="background-color: #4CAF50; margin-right: 0px;" >
                             Nhập nguyên liệu
                         </button>
-                        <button class="btn-create" name="nut" value="Xac nhan" type="submit" style="margin-right: 0px; ">Xác nhận</button>
+                        <!-- <button class="btn-create" name="nut" value="Xac nhan" type="submit"  style="margin-right: 0px; ">Xác nhận đã nhập</button> -->
+                         <button class="btn-create" name="nut" value="Xac nhan" type="submit" onclick="return confirm('Bạn có chắc chắn nguyên liệu đã nhập đủ số lượng chưa ?');" style="margin-right: 0px;">Xác nhận đã nhập</button>
+
                     <?php elseif($laytrangThai == 3): ?>
                         
                     <?php endif; ?>

@@ -12,8 +12,6 @@ if (empty($idNguoiDung)) {
 
 // Tạo kết nối
 $kho = new quanlikho();
-
-// Câu SQL: lọc theo idSP và chỉ lấy sản phẩm có số lượng > 0
 $sql = "SELECT 
             maSP, 
             idSanPham,
@@ -23,7 +21,7 @@ $sql = "SELECT
             soLuong, ngaySanXuat,HSDChoPhep,maQR
         FROM sanpham
         WHERE soLuong > 0
-        ORDER BY maSP ASC"; // Sắp xếp theo mã SP cho đẹp
+        ORDER BY maSP ASC"; 
 
 // Thực thi truy vấn
 $result = $kho->connect()->query($sql);

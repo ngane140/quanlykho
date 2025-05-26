@@ -17,12 +17,12 @@ include('../class/clsxemchitietyeucauxuatSP.php');
     <script src="../JS/dangxuat.js" defer></script> 
   <style>
      a {
-      text-decoration: none; /* Xóa gạch chân */
-      color: inherit; /* Giữ nguyên màu chữ */
+      text-decoration: none; 
+      color: inherit; 
     }
     .info-group {
         display: inline-block;
-        min-width: 400px; /* bạn có thể điều chỉnh theo ý muốn */
+        min-width: 400px;
         margin-bottom: 5px;
     }
   </style>

@@ -2,20 +2,20 @@
 class quanlikho
 {
     private $host = 'localhost';
-    private $username = 'root';  // Thay đổi tên người dùng nếu cần
-    private $password = '';      // Thay đổi mật khẩu nếu cần
-    private $database = 'qlkho'; // Thay đổi tên cơ sở dữ liệu
+    private $username = 'root'; 
+    private $password = '';      
+    private $database = 'qlkho'; 
 
     public function connect()
     {
-        // Tạo kết nối cơ sở dữ liệu
+        
         $con = new mysqli($this->host, $this->username, $this->password, $this->database);
 
         if ($con->connect_error) {
             die('Không thể kết nối cơ sở dữ liệu: ' . $con->connect_error);
         }
 
-        $con->set_charset("utf8"); // Thiết lập UTF-8
+        $con->set_charset("utf8"); 
         return $con;
     }
 
@@ -36,7 +36,7 @@ class quanlikho
 
         if ($result && $result->num_rows > 0) {
             while ($row = $result->fetch_array()) {
-                $return = $row[0]; // Lấy giá trị cột đầu tiên (có thể thay đổi tùy cột bạn cần)
+                $return = $row[0]; 
             }
         }
 

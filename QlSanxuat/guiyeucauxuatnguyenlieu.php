@@ -21,9 +21,9 @@ $p = new qlykho();
       color: inherit; /* Giữ nguyên màu chữ */
     }
     .scrollable-table {
-    max-height: 350px; /* hoặc chiều cao bạn muốn */
+    max-height: 350px; 
     overflow-y: auto;
-    border: 1px solid #ccc; /* tùy chọn, giúp dễ nhìn */
+    border: 1px solid #ccc; 
 }
 
 

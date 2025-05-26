@@ -35,7 +35,7 @@ $laysoLuongTon = $p->laycot("select soLuongTon from nguyenlieu where maNL = '$la
     }
     .info-group {
         display: inline-block;
-        min-width: 400px; /* bạn có thể điều chỉnh theo ý muốn */
+        min-width: 400px; 
         margin-bottom: 5px;
     }
   </style>

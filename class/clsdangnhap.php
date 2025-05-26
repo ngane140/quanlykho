@@ -1,12 +1,12 @@
 <?php
 include('ketnoi.php');
 session_start();
-$db = new quanlikho(); // Tạo đối tượng từ class
-$conn = $db->connect(); // Lấy kết nối MySQLi
+$db = new quanlikho(); 
+$conn = $db->connect(); 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $username = $_POST['username'];
-    $password = md5($_POST['password']); // Mã hóa MD5 như trong CSDL
+    $password = md5($_POST['password']); // Mã hóa MD5 
 
     // Chuẩn bị truy vấn
     $stmt = $conn->prepare("SELECT idNguoiDung, username, hoTen, idLoaiNguoiDung FROM nguoidung WHERE username = ? AND password = ?");

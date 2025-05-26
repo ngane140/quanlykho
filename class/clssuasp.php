@@ -1,5 +1,5 @@
 <?php
-include('ketnoi.php'); // Kết nối cơ sở dữ liệu
+include('ketnoi.php'); 
 
 // Kiểm tra kết nối và ID sản phẩm
 $maSP = isset($_GET['maSP']) ? $_GET['maSP'] : '';
