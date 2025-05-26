@@ -15,7 +15,7 @@ if ($laytrangThai == 0) {
     $laytrangThaiText = "Chờ nhập nguyên liệu";
 }
 else if($laytrangThai == 2) {
-    $laytrangThaiText = "Đã duyệt";
+    $laytrangThaiText = "Đã nhập";
 }
 else {
     $laytrangThaiText = "Từ chối";
