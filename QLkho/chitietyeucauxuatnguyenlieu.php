@@ -73,7 +73,7 @@ else {
                 <h2>Mã phiếu yêu cầu: <?php echo $layid ?></h2>
                 <form  method="post">
                     <?php if($laytrangThai == 0): ?>
-                    <button class="btn-cancel" name="nut" value="Tu choi phieu" type="submit">Từ chối phiếu</button>
+                    <button class="btn-cancel" name="nut" value="Tu choi phieu" type="submit" onclick="return confirm('Bạn có chắc Từ chối phiếu ?');";>Từ chối phiếu</button>
                     <button class="btn-create" name="nut" value="Xac nhan xuat" type="submit" style="margin-right: 100px;">Xác nhận Xuất</button>
                     <?php elseif($laytrangThai == 1): ?>
                         <!-- <button class="btn-cancel" name="nut" value="Tu choi phieu" type="submit">Từ chối phiếu</button> -->
@@ -165,16 +165,17 @@ else {
                                         }
                             
                                     case 'Tu choi phieu': {
-                                        if ($p->themxoasua("UPDATE yeucauxuatnguyenlieu SET trangThai = 3 WHERE idYeuCauXuatNL = '$layid'") == 1) {
-                                            echo '<script>
-                                                    alert("Bạn có chắc chắn Từ chối phiếu?");
-                                                    window.location.href = "chitietyeucauxuatnguyenlieu.php?id=' . $layid . '";
+                                        echo '<script>
+                                                    alert("Đã từ chối phiếu!");
+                                                    window.location.href = "chitietyeucauxuatnguyenlieu.php?id='.$layid.'";
                                                   </script>';
-                                        }
+                                        $p->themxoasua("UPDATE yeucauxuatnguyenlieu SET trangThai = 3 WHERE idYeuCauXuatNL = '$layid'");
+                                        
                                         break;
                                     }
+                                    }
                                 }
-                            }
+                            
                             
                         ?>
                 </form>
