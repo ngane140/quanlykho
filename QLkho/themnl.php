@@ -16,6 +16,7 @@ include("../class/clsthemnl.php");
   <link rel="stylesheet" href="../CSS/huy.css">
   <script src="../JS/thongbao.js"></script>
   <script src="../JS/dangxuat.js" defer></script> 
+  <script src="../JS/donvitinh.js" defer></script> 
 
  
   <style>
@@ -77,7 +78,10 @@ include("../class/clsthemnl.php");
                 <input type="number" id="donGia" name="donGia" required min="1000" step="100">
 
                 <label for="donViTinh">Đơn Vị Tính</label>
-                <input type="text" id="donViTinh" name="donViTinh" required>
+                <!-- <input type="text" id="donViTinh" name="donViTinh" required> -->
+                 <input type="text" id="donViTinh" name="donViTinh" oninput="goiYDonViTinh()" autocomplete="off" required>
+                 <span id="donViTinhLoi" style="color:red;"></span>
+
 
                 <div class="form-buttons">
                     <button type="submit">Xác Nhận</button>

@@ -14,6 +14,14 @@ include_once('../class/clsthongtin.php');
   <link rel="stylesheet" href="../CSS/dropdown.css">
   <link rel="stylesheet" href="../CSS/style.css">
     <script src="../JS/dangxuat.js" defer></script> 
+    <style>
+     a {
+      text-decoration: none; /* Xóa gạch chân */
+      color: inherit; /* Giữ nguyên màu chữ */
+    }
+
+
+  </style>
 </head>
 <body>
 <header class="header">

@@ -82,7 +82,7 @@ include("../class/clsthemsp.php");
                 <input type="number" id="donGia" name="donGia" required min="1000" step="100">
 
                 <label for="donViTinh">Đơn Vị Tính</label>
-                <input type="text" id="donViTinh" name="donViTinh" required>
+                <input type="hidden" name="donViTinh" value="Cái"><input type="text" value="Cái" readonly/>
                 <!--  -->
                 <h3>Nguyên liệu tạo thành</h3>
                 <div id="nguyenlieu-container">
